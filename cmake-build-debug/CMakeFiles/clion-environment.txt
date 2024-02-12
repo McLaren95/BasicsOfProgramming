@@ -1,0 +1,4 @@
+ToolSet: w64 11.0 (local)@D:\GAMES\i686-13.1.0-release-posix-dwarf-msvcrt-rt_v11-rev1\mingw32
+Options: 
+
+Options:-DCMAKE_MAKE_PROGRAM=D:/GAMES/CLion 2023.2.1/bin/ninja/win/x64/ninja.exe

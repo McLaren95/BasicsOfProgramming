@@ -1,0 +1,74 @@
+{
+	"kind" : "toolchains",
+	"toolchains" : 
+	[
+		{
+			"compiler" : 
+			{
+				"id" : "GNU",
+				"implicit" : 
+				{
+					"includeDirectories" : 
+					[
+						"D:/GAMES/i686-13.1.0-release-posix-dwarf-msvcrt-rt_v11-rev1/mingw32/lib/gcc/i686-w64-mingw32/13.1.0/include",
+						"D:/GAMES/i686-13.1.0-release-posix-dwarf-msvcrt-rt_v11-rev1/mingw32/lib/gcc/i686-w64-mingw32/13.1.0/include-fixed",
+						"D:/GAMES/i686-13.1.0-release-posix-dwarf-msvcrt-rt_v11-rev1/mingw32/i686-w64-mingw32/include"
+					],
+					"linkDirectories" : 
+					[
+						"D:/GAMES/i686-13.1.0-release-posix-dwarf-msvcrt-rt_v11-rev1/mingw32/lib/gcc/i686-w64-mingw32/13.1.0",
+						"D:/GAMES/i686-13.1.0-release-posix-dwarf-msvcrt-rt_v11-rev1/mingw32/lib/gcc",
+						"D:/GAMES/i686-13.1.0-release-posix-dwarf-msvcrt-rt_v11-rev1/mingw32/i686-w64-mingw32/lib",
+						"D:/GAMES/i686-13.1.0-release-posix-dwarf-msvcrt-rt_v11-rev1/mingw32/lib"
+					],
+					"linkFrameworkDirectories" : [],
+					"linkLibraries" : 
+					[
+						"mingw32",
+						"gcc",
+						"moldname",
+						"mingwex",
+						"kernel32",
+						"pthread",
+						"advapi32",
+						"shell32",
+						"user32",
+						"kernel32",
+						"iconv",
+						"mingw32",
+						"gcc",
+						"moldname",
+						"mingwex",
+						"kernel32"
+					]
+				},
+				"path" : "D:/GAMES/i686-13.1.0-release-posix-dwarf-msvcrt-rt_v11-rev1/mingw32/bin/gcc.exe",
+				"version" : "13.1.0"
+			},
+			"language" : "C",
+			"sourceFileExtensions" : 
+			[
+				"c",
+				"m"
+			]
+		},
+		{
+			"compiler" : 
+			{
+				"implicit" : {},
+				"path" : "D:/GAMES/i686-13.1.0-release-posix-dwarf-msvcrt-rt_v11-rev1/mingw32/bin/windres.exe"
+			},
+			"language" : "RC",
+			"sourceFileExtensions" : 
+			[
+				"rc",
+				"RC"
+			]
+		}
+	],
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 0
+	}
+}
