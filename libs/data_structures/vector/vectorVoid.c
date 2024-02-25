@@ -47,23 +47,39 @@ bool isFullV(vectorVoid *v) {
 }
 
 void getVectorValueV(vectorVoid *v, size_t index, void *destination) {
-    if (index < v->size) {
-        char *source = (char *) v->data + index * v->baseTypeSize;
-        memcpy(destination, source, v->baseTypeSize);
-    } else {
-        fprintf(stderr, "%zu index is out of size", index);
+    // Проверка на нулевые указатели
+    if (v == NULL || destination == NULL) {
+        fprintf(stderr, "Error: NULL pointer argument detected\n");
         exit(1);
     }
+    // Проверка на выход за пределы размера вектора
+    if (index >= v->size) {
+        fprintf(stderr, "Error: Index %zu is out of bounds (vector size: %zu)\n", index, v->size);
+        exit(1);
+    }
+    // Получение адреса начала данных для index-ого элемента вектора
+    char *source = (char *) v->data + index * v->baseTypeSize;
+    // Копирование данных из вектора в destination
+    memcpy(destination, source, v->baseTypeSize);
 }
 
+
 void setVectorValueV(vectorVoid *v, size_t index, void *source) {
-    if (index >= v->size) {
-        fprintf(stderr, "%zu index not in vector", index);
+    // Проверка на нулевые указатели
+    if (v == NULL || source == NULL) {
+        fprintf(stderr, "Error: NULL pointer argument detected\n");
         exit(1);
     }
+    // Проверка на выход за пределы размера вектора
+    if (index >= v->size) {
+        fprintf(stderr, "Error: Index %zu is out of bounds (vector size: %zu)\n", index, v->size);
+        exit(1);
+    }
+    // Вычисление адреса для index-ого элемента вектора и копирование данных
     char *destination = (char *) (v->data + index * v->baseTypeSize);
     memcpy(destination, source, v->baseTypeSize);
 }
+
 
 void popBackV(vectorVoid *v) {
     if (isEmptyV(v)) {
