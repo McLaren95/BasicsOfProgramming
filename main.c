@@ -3,15 +3,18 @@
 #include "libs/data_structures/vector/vectorVoid.h"
 
 int main() {
-    vectorVoid vV;
-    vV.size = 5;
-    vV.capacity = 10;
-    vV.baseTypeSize = sizeof(int);
-    vV.data = malloc(vV.size * vV.baseTypeSize);
-    if (vV.data == NULL) {
-        fprintf(stderr, "Ошибка выделения памяти\n");
-        return 1;
+    size_t n;
+    scanf("%zd", &n);
+    vectorVoid v = createVectorV(0, sizeof(float));
+    for (int i = 0; i < n; i++) {
+        float x;
+        scanf("%f", &x);
+        pushBackV(&v, &x);
     }
-    free(vV.data);
+    for (int i = 0; i < n; i++) {
+        float x;
+        getVectorValueV(&v, i, &x);
+        printf("%f ", x);
+    }
     return 0;
 }
