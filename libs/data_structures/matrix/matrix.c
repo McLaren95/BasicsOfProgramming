@@ -16,15 +16,21 @@ matrix *getMemArrayOfMatrices(int nMatrices, int nRows, int nCols) {
 }
 
 void freeMemMatrix(matrix *m) {
-    for (int i = 0; i < m->nRows; i++)
+    for (int i = 0; i < m->nRows; i++) {
         free(m->values[i]);
+    }
     free(m->values);
+    m->values = NULL;
+    m->nRows = 0;
+    m->nCols = 0;
 }
 
 void freeMemMatrices(matrix *ms, int nMatrices) {
-    for (int i = 0; i < nMatrices; i++)
+    for (int i = 0; i < nMatrices; i++) {
         freeMemMatrix(&ms[i]);
+    }
     free(ms);
+    ms = NULL;
 }
 
 void inputMatrix(matrix *m) {
