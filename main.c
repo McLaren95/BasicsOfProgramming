@@ -1,13 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "libs/data_structures/matrix/matrix.h"
+
 int main(){
-    int N;
-    scanf("%d",&N);
-    int *a = (int*)malloc(N);
-    for(int i = 0; i<N;i++){
-        a[i]=i;
-    }
-    printf("NORMAl");
+    matrix m = getMemMatrix(2,3);
+    inputMatrix(&m);
+    outputMatrix(m);
+    swapColumns(m,0,1);
+    outputMatrix(m);
 
     return 0;
 }
