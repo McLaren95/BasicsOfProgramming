@@ -8,7 +8,7 @@ int sumArray(int arr[], int size) {
 }
 
 int main(){
-    matrix m1= getMemMatrix(3,3);
+    matrix m1= getMemMatrix(1,3);
     inputMatrix(&m1);
     outputMatrix(m1);
     position pos = getMaxValuePos(m1);
