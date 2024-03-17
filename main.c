@@ -8,11 +8,11 @@ int sumArray(int arr[], int size) {
 }
 
 int main(){
-    matrix m1= getMemMatrix(0,0);
+    matrix m1= getMemMatrix(3,3);
     inputMatrix(&m1);
     outputMatrix(m1);
-    transposeMatrix(&m1);
-    outputMatrix(m1);
+    position pos = getMaxValuePos(m1);
+    printf("Минимальный элемент матрицы находится в строке %d и столбце %d\n", pos.rowIndex, pos.colIndex);
 
     return 0;
 }
