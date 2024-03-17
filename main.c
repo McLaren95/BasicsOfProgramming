@@ -8,11 +8,11 @@ int sumArray(int arr[], int size) {
 }
 
 int main(){
-    matrix m1= getMemMatrix(3,3);
+    matrix m1= getMemMatrix(0,0);
     inputMatrix(&m1);
     outputMatrix(m1);
-    bool result = isSymmetricMatrix(&m1);
-    printf("%d",result);
+    transposeMatrix(&m1);
+    outputMatrix(m1);
 
     return 0;
 }
