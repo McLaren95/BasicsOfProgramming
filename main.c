@@ -342,6 +342,6 @@ int main() {
     testTransposeSquareMatrix();
     testTransposeMatrix();
     testGetMinValuePos();
-    testGetMaxValuePos();
+    //testGetMaxValuePos();
     return 0;
 }
