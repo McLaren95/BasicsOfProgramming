@@ -166,4 +166,56 @@ void selectionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int *, int))
     free(intermediate_array);
 }
 
+bool isSquareMatrix(matrix *m) {
+    return (m->nRows == m->nCols);
+}
+
+bool areTwoMatricesEqual(matrix *m1, matrix *m2) {
+    if (m1->nRows != m2->nRows || m1->nCols != m2->nCols) {
+        return false;
+    }
+    int total_elements_m1 = m1->nRows * m1->nCols;
+    int total_elements_m2 = m2->nRows * m2->nCols;
+    int *values_m1 = (int *)malloc(total_elements_m1 * sizeof(int));
+    int *values_m2 = (int *)malloc(total_elements_m2 * sizeof(int));
+    if (values_m1 == NULL || values_m2 == NULL) {
+        return false;
+    }
+    for (int i = 0; i < m1->nRows; i++) {
+        memcpy(values_m1 + i * m1->nCols, m1->values[i], m1->nCols * sizeof(int));
+        memcpy(values_m2 + i * m2->nCols, m2->values[i], m2->nCols * sizeof(int));
+    }
+    bool equal = memcmp(values_m1, values_m2, total_elements_m1 * sizeof(int)) == 0;
+    free(values_m1);
+    free(values_m2);
+
+    return equal;
+}
+
+bool isEMatrix(matrix *m){
+    if (!isSquareMatrix(m))
+        return false;
+    for (int i = 0; i < m->nRows; i++) {
+        for (int j = 0; j < m->nCols; j++) {
+            if ((i == j && m->values[i][j] != 1) || (i != j && m->values[i][j] != 0)) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+bool isSymmetricMatrix(matrix *m){
+    if (!isSquareMatrix(m))
+        return false;
+    for (int i = 0; i < m->nRows; i++){
+        for (int j = i+1; j < m->nCols; j++){
+            if(m->values[i][j] != m->values[j][i])
+                return false;
+        }
+    }
+    return true;
+}
+
+
 

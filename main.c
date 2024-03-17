@@ -8,12 +8,11 @@ int sumArray(int arr[], int size) {
 }
 
 int main(){
-    matrix m = getMemMatrix(3,5);
-    inputMatrix(&m);
-    outputMatrix(m);
-    selectionSortColsMatrixByColCriteria(m,sumArray);
-    insertionSortRowsMatrixByRowCriteria(m,sumArray);
-    outputMatrix(m);
+    matrix m1= getMemMatrix(3,3);
+    inputMatrix(&m1);
+    outputMatrix(m1);
+    bool result = isSymmetricMatrix(&m1);
+    printf("%d",result);
 
     return 0;
 }
