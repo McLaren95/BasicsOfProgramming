@@ -10,9 +10,13 @@ add_executable(untitled main.c
         libs/algorithms/algorithm.h
         libs/data_structures/bitset/bitset.c
         libs/data_structures/bitset/bitset.h
+        labs/lab_16/lab_16.c
+        labs/lab_16/lab_16.h
+        "labs/tests/lab_16_tests.c"
 )
 
 add_subdirectory(libs)
 target_link_libraries(untitled algorithms)
 target_link_libraries(untitled data_structures)
+
 
