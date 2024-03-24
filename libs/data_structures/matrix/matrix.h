@@ -93,7 +93,10 @@ matrix createMatrixFromArray(const int *a, size_t nRows, size_t nCols);
 // в динамической памяти, построенных из элементов массива a.
 matrix *createArrayOfMatrixFromArray(const int *values, size_t nMatrices, size_t nRows, size_t nCols);
 
-//возвращает наибольший элемент в массиве
+//возвращает наибольший элемент в массиве.
 int getMax(int *a, int n);
+
+//возвращает наименьший элементв в массиве.
+int getMin(int *a, int n);
 
 #endif

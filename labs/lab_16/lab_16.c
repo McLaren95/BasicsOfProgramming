@@ -9,3 +9,11 @@ void exercise_1(matrix m) {
 void exercise_2(matrix m) {
     insertionSortRowsMatrixByRowCriteria(m, getMax);
 }
+
+void exercise_3(matrix m) {
+    selectionSortColsMatrixByColCriteria(m, getMin);
+}
+
+void exercise_4(matrix m) {
+
+}

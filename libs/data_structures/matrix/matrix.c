@@ -302,11 +302,20 @@ matrix *createArrayOfMatrixFromArray(const int *values, size_t nMatrices, size_t
 
 int getMax(int *a, int n) {
     int max = a[0];
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n; i++) {
         if (max < a[i])
             max = a[i];
     }
     return max;
+}
+
+int getMin(int *a, int n) {
+    int min = a[0];
+    for (int i = 0; i < n; i++) {
+        if (min > a[i])
+            min = a[i];
+    }
+    return min;
 }
 
 

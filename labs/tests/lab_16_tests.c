@@ -15,3 +15,10 @@ void test_exercise_2(){
     outputMatrix(m);
     freeMemMatrix(&m);
 }
+void test_exercise_3(){
+    matrix m = getMemMatrix(3, 6);
+    inputMatrix(&m);
+    exercise_3(m);
+    outputMatrix(m);
+    freeMemMatrix(&m);
+}

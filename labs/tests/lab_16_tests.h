@@ -5,3 +5,6 @@ void test_exercise_1();
 
 //тест задания 2.
 void test_exercise_2();
+
+//тест задания 3.
+void test_exercise_3();
