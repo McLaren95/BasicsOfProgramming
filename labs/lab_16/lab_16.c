@@ -21,3 +21,16 @@ void exercise_4(matrix m) {
         printf("This matrix is not symmetric\n");
     }
 }
+
+void exercise_5(matrix m) {
+    int *values = (int *) malloc(sizeof(int) * m.nRows);
+    for (int i = 0; i < m.nRows; i++) {
+        values[i] = sumArray(m.values[i], m.nCols);
+    }
+    bool uniqueness = isUnique(values, m.nRows);
+    if (!uniqueness)
+        printf("impossible to transpose\n");
+    else
+        transposeSquareMatrix(&m);
+    free(values);
+}

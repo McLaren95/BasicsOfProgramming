@@ -11,3 +11,6 @@ void test_exercise_3();
 
 //тест задания 4.
 void test_exercise_4();
+
+//тест задания 5.
+void test_exercise_5();

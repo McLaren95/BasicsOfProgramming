@@ -31,3 +31,11 @@ void test_exercise_4(){
     outputMatrix(m);
     freeMemMatrix(&m);
 }
+
+void test_exercise_5(){
+    matrix m = getMemMatrix(3, 3);
+    inputMatrix(&m);
+    exercise_5(m);
+    outputMatrix(m);
+    freeMemMatrix(&m);
+}

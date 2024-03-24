@@ -336,6 +336,26 @@ void squareMatrix(matrix *m) {
     freeMemMatrix(&result);
 }
 
+int sumArray(int arr[], int size) {
+    int sum = 0;
+    for (int i = 0; i < size; i++) {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+bool isUnique(const int *array, size_t size) {
+    for (size_t i = 0; i < size; ++i) {
+        for (size_t j = i + 1; j < size; ++j) {
+            if (array[i] == array[j]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+
 
 
 

@@ -102,4 +102,10 @@ int getMin(int *a, int n);
 // возводит матрицу в квадрат.
 void squareMatrix(matrix *m);
 
+// возвращает сумму массива.
+int sumArray(int arr[], int size);
+
+// проверяет массив на уникальность.
+bool isUnique(const int *array, size_t size);
+
 #endif
