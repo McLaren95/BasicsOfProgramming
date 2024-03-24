@@ -318,5 +318,25 @@ int getMin(int *a, int n) {
     return min;
 }
 
+void squareMatrix(matrix *m) {
+    matrix result = getMemMatrix(m->nRows, m->nCols);
+    for (int i = 0; i < m->nRows; i++) {
+        for (int j = 0; j < m->nCols; j++) {
+            result.values[i][j] = 0;
+            for (int k = 0; k < m->nCols; k++) {
+                result.values[i][j] += m->values[i][k] * m->values[k][j];
+            }
+        }
+    }
+    for (int i = 0; i < m->nRows; i++) {
+        for (int j = 0; j < m->nCols; j++) {
+            m->values[i][j] = result.values[i][j];
+        }
+    }
+    freeMemMatrix(&result);
+}
+
+
+
 
 

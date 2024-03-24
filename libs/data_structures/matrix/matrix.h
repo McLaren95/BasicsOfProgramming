@@ -99,4 +99,7 @@ int getMax(int *a, int n);
 //возвращает наименьший элементв в массиве.
 int getMin(int *a, int n);
 
+// возводит матрицу в квадрат.
+void squareMatrix(matrix *m);
+
 #endif

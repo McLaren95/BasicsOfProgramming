@@ -15,5 +15,9 @@ void exercise_3(matrix m) {
 }
 
 void exercise_4(matrix m) {
-
+    if(isSymmetricMatrix(&m)){
+        squareMatrix(&m);
+    }else{
+        printf("This matrix is not symmetric\n");
+    }
 }

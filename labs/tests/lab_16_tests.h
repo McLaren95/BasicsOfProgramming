@@ -8,3 +8,6 @@ void test_exercise_2();
 
 //тест задания 3.
 void test_exercise_3();
+
+//тест задания 4.
+void test_exercise_4();
