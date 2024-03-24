@@ -13,3 +13,11 @@ void exercise_2(matrix m) {
 void exercise_3(matrix m) {
     selectionSortColsMatrixByColCriteria(m, getMin);
 }
+
+void exercise_4(matrix m) {
+    if (isSymmetricMatrix(&m)) {
+        squareMatrix(&m);
+    } else {
+        printf("This matrix is not symmetric\n");
+    }
+}
