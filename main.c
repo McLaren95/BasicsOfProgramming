@@ -2,5 +2,6 @@
 
 int main() {
     test_exercise_1();
+    test_exercise_2();
     return 0;
 }
