@@ -8,7 +8,7 @@ void test_exercise_1() {
     freeMemMatrix(&m);
 }
 
-void test_exercise_2(){
+void test_exercise_2() {
     matrix m = getMemMatrix(3, 3);
     inputMatrix(&m);
     exercise_2(m);
@@ -16,7 +16,7 @@ void test_exercise_2(){
     freeMemMatrix(&m);
 }
 
-void test_exercise_3(){
+void test_exercise_3() {
     matrix m = getMemMatrix(3, 6);
     inputMatrix(&m);
     exercise_3(m);
@@ -24,7 +24,7 @@ void test_exercise_3(){
     freeMemMatrix(&m);
 }
 
-void test_exercise_4(){
+void test_exercise_4() {
     matrix m = getMemMatrix(3, 3);
     inputMatrix(&m);
     exercise_4(m);
@@ -32,10 +32,27 @@ void test_exercise_4(){
     freeMemMatrix(&m);
 }
 
-void test_exercise_5(){
+void test_exercise_5() {
     matrix m = getMemMatrix(3, 3);
     inputMatrix(&m);
     exercise_5(m);
     outputMatrix(m);
     freeMemMatrix(&m);
+}
+
+void test_exercise_6() {
+    matrix m1 = getMemMatrix(3, 3);
+    inputMatrix(&m1);
+    outputMatrix(m1);
+    matrix m2 = getMemMatrix(3, 3);
+    inputMatrix(&m2);
+    outputMatrix(m2);
+    bool result = exercise_6(m1, m2);
+    matrix m3 = getMemMatrix(3, 3);
+    m3 = squareMatrixMultiplication(&m1, &m2);
+    outputMatrix(m3);
+    freeMemMatrix(&m1);
+    freeMemMatrix(&m2);
+    freeMemMatrix(&m3);
+    printf("%d\n", result);
 }

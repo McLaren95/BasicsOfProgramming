@@ -6,5 +6,6 @@ int main() {
     //test_exercise_3();
     //test_exercise_4();
     //test_exercise_5();
+    //test_exercise_6();
     return 0;
 }

@@ -108,4 +108,7 @@ int sumArray(int arr[], int size);
 // проверяет массив на уникальность.
 bool isUnique(const int *array, size_t size);
 
+// умножает две матрицы.
+matrix squareMatrixMultiplication(matrix *m1, matrix *m2);
+
 #endif

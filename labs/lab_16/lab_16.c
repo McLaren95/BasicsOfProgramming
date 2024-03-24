@@ -34,3 +34,11 @@ void exercise_5(matrix m) {
         transposeSquareMatrix(&m);
     free(values);
 }
+
+bool exercise_6(matrix m1, matrix m2) {
+    matrix result = squareMatrixMultiplication(&m1, &m2);
+    if (!isEMatrix(&result))
+        return false;
+    else
+        return true;
+}
