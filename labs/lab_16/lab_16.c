@@ -5,3 +5,7 @@ void exercise_1(matrix m) {
     position max_pos = getMaxValuePos(m);
     swapRows(m, min_pos.rowIndex, max_pos.rowIndex);
 }
+
+void exercise_2(matrix m) {
+    insertionSortRowsMatrixByRowCriteria(m, getMax);
+}
