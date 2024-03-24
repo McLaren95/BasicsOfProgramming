@@ -12,7 +12,8 @@ add_executable(untitled main.c
         libs/data_structures/bitset/bitset.h
         labs/lab_16/lab_16.c
         labs/lab_16/lab_16.h
-        "labs/tests/lab_16_tests.c"
+        labs/tests/lab_16_tests.c
+        labs/tests/lab_16_tests.h
 )
 
 add_subdirectory(libs)
