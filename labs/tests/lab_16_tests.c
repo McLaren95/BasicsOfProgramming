@@ -56,3 +56,11 @@ void test_exercise_6() {
     freeMemMatrix(&m3);
     printf("%d\n", result);
 }
+
+void test_exercise_7(){
+    matrix m = getMemMatrix(3, 4);
+    inputMatrix(&m);
+    outputMatrix(m);
+    long long int result = exercise_7(m);
+    printf("%lld",result);
+}

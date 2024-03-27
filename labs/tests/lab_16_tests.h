@@ -17,3 +17,6 @@ void test_exercise_5();
 
 //тест задания 6.
 void test_exercise_6();
+
+//тест задания 7.
+void test_exercise_7();
