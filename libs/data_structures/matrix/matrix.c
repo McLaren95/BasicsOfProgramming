@@ -387,6 +387,16 @@ void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, in
     }
     free(criteria_values);
 }
+long long sum(const int* array, int size) {
+    long long sum = 0;
+
+    for (int i = 0; i < size; ++i) {
+        sum += array[i];
+    }
+    return sum;
+}
+
+
 
 
 

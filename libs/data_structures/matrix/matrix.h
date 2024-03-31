@@ -115,4 +115,7 @@ matrix squareMatrixMultiplication(matrix *m1, matrix *m2);
 // типа float.
 void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, int));
 
+// возвращает long long сумму.
+long long sum(const int* array, int size);
+
 #endif

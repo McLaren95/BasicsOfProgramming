@@ -140,3 +140,33 @@ float getDistance(int *a, int n) {
     }
     return sqrtf(square_sum);
 }
+
+int countEqual(long long *a, int n) {
+    int uniqueCount = 1;
+    qsort(a, n, sizeof(long long), cmp_long_long);
+    for (int i = 1; i < n; i++) {
+        if (a[i] != a[i - 1]) {
+            uniqueCount++;
+        }
+    }
+    return uniqueCount;
+}
+
+int cmp_long_long(const void *pa, const void *pb) {
+    const long long *a = (const long long *) pa;
+    const long long *b = (const long long *) pb;
+
+    if (*a < *b) {
+        return -1;
+    } else if (*a > *b) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+void outputArray_LL(const long long * a,  size_t n) {
+    for (size_t i = 0; i < n; i++)
+        printf("%lld ", a[i]);
+    printf("\n");
+}

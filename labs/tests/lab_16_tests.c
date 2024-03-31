@@ -80,3 +80,11 @@ void test_exercise_9(){
     exercise_9(m);
     outputMatrix(m);
 }
+
+void test_exercise_10(){
+    matrix m = getMemMatrix(6, 2);
+    inputMatrix(&m);
+    outputMatrix(m);
+    int result = exercise_10(m);
+    printf("%d",result);
+}

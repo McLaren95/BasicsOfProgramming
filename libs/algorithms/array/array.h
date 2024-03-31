@@ -3,6 +3,7 @@
 
 #include <stddef.h>
 #include <math.h>
+#include <stdlib.h>
 
 // ввод массива data размера n
 void inputArray_(int *a, size_t n);
@@ -71,5 +72,15 @@ int min(int a, int b);
 
 // возвращает расстояние точек от начала координат
 float getDistance(int *a, int n);
+
+// считает количество одинаковых элементов.
+int countEqual(long long *a, int n);
+
+//Эта функция предназначена для сравнения двух значений типа long long
+// и используется как параметр для стандартной функции сортировки qsort
+int cmp_long_long(const void *pa, const void *pb);
+
+// выводит массив типа long long.
+void outputArray_LL(const long long * a,  size_t n);
 
 #endif
