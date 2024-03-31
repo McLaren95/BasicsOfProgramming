@@ -2,6 +2,7 @@
 #define INC_ARRAY_H
 
 #include <stddef.h>
+#include <math.h>
 
 // ввод массива data размера n
 void inputArray_(int *a, size_t n);
@@ -67,5 +68,8 @@ int max(int a, int b);
 
 // возвращает минимальный элемент из двух.
 int min(int a, int b);
+
+// возвращает расстояние точек от начала координат
+float getDistance(int *a, int n);
 
 #endif

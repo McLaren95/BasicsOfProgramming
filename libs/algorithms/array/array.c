@@ -20,7 +20,7 @@ void append_(int *const a, size_t *const n, const int value) {
     (*n)++;
 }
 
-void insert_(int *const a, size_t *const n, const size_t pos,const int value) {
+void insert_(int *const a, size_t *const n, const size_t pos, const int value) {
     assert (pos < *n);
     if (*n != 0) {
         size_t lowBound = (pos == 0) ? SIZE_MAX : pos;
@@ -97,7 +97,7 @@ void forEach_(const int *source, int *dest, const size_t n, const int (*predicat
 
 int binarySearch_(const int *a, size_t n, int x) {
     int left = 0;
-    int right = n-1;
+    int right = n - 1;
     while (left <= right) {
         int middle = left + (right - left) / 2;
         if (a[middle] < x)
@@ -131,4 +131,12 @@ int max(int a, int b) {
 
 int min(int a, int b) {
     return a < b ? a : b;
+}
+
+float getDistance(int *a, int n) {
+    float square_sum = 0;
+    for (int i = 0; i < n; i++) {
+        square_sum += (float) (a[i] * a[i]);
+    }
+    return sqrtf(square_sum);
 }

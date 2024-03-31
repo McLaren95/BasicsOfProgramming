@@ -84,3 +84,7 @@ int exercise_8(matrix m) {
     }
     return min_value;
 }
+
+void exercise_9(matrix m) {
+    insertionSortRowsMatrixByRowCriteriaF(m,getDistance);
+}

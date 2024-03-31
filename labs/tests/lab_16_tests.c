@@ -72,3 +72,11 @@ void test_exercise_8(){
     int result = exercise_8(m);
     printf("%d",result);
 }
+
+void test_exercise_9(){
+    matrix m = getMemMatrix(3, 4);
+    inputMatrix(&m);
+    outputMatrix(m);
+    exercise_9(m);
+    outputMatrix(m);
+}

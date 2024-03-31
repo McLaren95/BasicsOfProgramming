@@ -38,3 +38,14 @@
 6	275	7335759925863336	CMakeFiles/untitled.dir/labs/tests/lab_16_tests.c.obj	78a6b6a0519b5054
 16	288	7335759925993672	CMakeFiles/untitled.dir/labs/lab_16/lab_16.c.obj	9d22e08386ce272b
 289	475	7335759927818788	untitled.exe	fbb3b722af0533ca
+11	429	7335797393065099	CMakeFiles/untitled.dir/labs/lab_16/lab_16.c.obj	9d22e08386ce272b
+3	435	7335797393507199	CMakeFiles/untitled.dir/labs/tests/lab_16_tests.c.obj	78a6b6a0519b5054
+435	890	7335797398087028	libs/algorithms/CMakeFiles/algorithms.dir/array/array.c.obj	f66309520a53d274
+8	896	7335797398166816	CMakeFiles/untitled.dir/libs/algorithms/array/array.c.obj	5459521caea1e948
+430	928	7335797398386788	CMakeFiles/untitled.dir/main.c.obj	70ecd4e278a2c28c
+928	1170	7335797400890089	libs/data_structures/CMakeFiles/data_structures.dir/ordered_array_set/ordered_array_set.c.obj	ebc3312af122fd5e
+897	1239	7335797401613770	libs/data_structures/CMakeFiles/data_structures.dir/unordered_array_set/unordered_array_set.c.obj	55c1cc44ff3fb2e6
+890	1273	7335797402024429	libs/algorithms/libalgorithms.a	4bb23fb37edab8cd
+1171	1382	7335797403131456	libs/data_structures/CMakeFiles/data_structures.dir/matrix/matrix.c.obj	e607868915a1a3a6
+1382	1502	7335797404335668	libs/data_structures/libdata_structures.a	7cec203713518ef8
+1502	1921	7335797408466329	untitled.exe	fbb3b722af0533ca

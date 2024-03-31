@@ -111,4 +111,8 @@ bool isUnique(const int *array, size_t size);
 // умножает две матрицы.
 matrix squareMatrixMultiplication(matrix *m1, matrix *m2);
 
+// выполняет сортировку вставками строк матрицы m по неубыванию значения функции criteria применяемой для строк, для
+// типа float.
+void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, int));
+
 #endif

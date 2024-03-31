@@ -23,3 +23,6 @@ void test_exercise_7();
 
 //тест задания 8.
 void test_exercise_8();
+
+// тест задания 9.
+void test_exercise_9();

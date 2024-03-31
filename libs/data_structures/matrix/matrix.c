@@ -368,6 +368,26 @@ matrix squareMatrixMultiplication(matrix *m1, matrix *m2) {
     return result;
 }
 
+void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, int)) {
+    float *criteria_values = (float *) malloc(sizeof(float) * m.nRows);
+    assert(criteria_values != NULL);
+    for (int i = 0; i < m.nRows; i++) {
+        criteria_values[i] = criteria(m.values[i], m.nCols);
+    }
+    for (int i = 1; i < m.nRows; i++) {
+        float key_value = criteria_values[i];
+        int j = i;
+        while (j > 0 && criteria_values[j - 1] > key_value) {
+            swapRows(m, j - 1, j);
+            float temp = criteria_values[j - 1];
+            criteria_values[j - 1] = criteria_values[j];
+            criteria_values[j] = temp;
+            j--;
+        }
+    }
+    free(criteria_values);
+}
+
 
 
 

@@ -8,6 +8,7 @@ int main() {
     //test_exercise_5();
     //test_exercise_6();
     //test_exercise_7();
-    test_exercise_8();
+    //test_exercise_8();
+    //test_exercise_9();
     return 0;
 }
