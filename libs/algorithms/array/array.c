@@ -165,8 +165,10 @@ int cmp_long_long(const void *pa, const void *pb) {
     }
 }
 
-void outputArray_LL(const long long * a,  size_t n) {
+void outputArray_LL(const long long *a, size_t n) {
     for (size_t i = 0; i < n; i++)
         printf("%lld ", a[i]);
     printf("\n");
 }
+
+

@@ -130,4 +130,7 @@ int countValues(const int *a, int n, int value);
 // подсчитывает количество строк в матрице m, где все элементы строки равны 0.
 int countZeroRows(matrix m);
 
+//вычисляет норму матрицы, которая представляет собой наибольшее абсолютное значение среди всех элементов матрицы.
+int getMatrixNorm(matrix m);
+
 #endif

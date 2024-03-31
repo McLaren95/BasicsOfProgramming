@@ -81,6 +81,6 @@ int countEqual(long long *a, int n);
 int cmp_long_long(const void *pa, const void *pb);
 
 // выводит массив типа long long.
-void outputArray_LL(const long long * a,  size_t n);
+void outputArray_LL(const long long *a, size_t n);
 
 #endif

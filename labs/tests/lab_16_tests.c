@@ -126,3 +126,10 @@ void test_exercise_14() {
     exercise_14(ms, 5);
     freeMemMatrices(ms, 5);
 }
+
+void test_exercise_15() {
+    matrix *ms = getMemArrayOfMatrices(3, 3, 3);
+    inputMatrices(ms, 3);
+    exercise_15(ms, 3);
+    freeMemMatrices(ms, 3);
+}

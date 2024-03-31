@@ -155,4 +155,15 @@ void exercise_14(matrix *ms, int n) {
     }
 }
 
-
+void exercise_15(matrix *ms, int n) {
+    int matrix_norms[n];
+    for (int i = 0; i < n; i++) {
+        matrix_norms[i] = getMatrixNorm(ms[i]);
+    }
+    int min_norm = getMin(matrix_norms, n);
+    for (int i = 0; i < n; i++) {
+        if (matrix_norms[i] == min_norm) {
+            outputMatrix(ms[i]);
+        }
+    }
+}

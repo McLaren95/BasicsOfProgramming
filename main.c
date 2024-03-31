@@ -15,5 +15,6 @@ int main() {
     //test_exercise_12();
     //test_exercise_13();
     //test_exercise_14();
+    test_exercise_15();
     return 0;
 }

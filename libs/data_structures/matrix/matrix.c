@@ -435,6 +435,18 @@ int countZeroRows(matrix m) {
     return amount;
 }
 
+int getMatrixNorm(matrix m) {
+    int max_value = 0;
+    for (int i = 0; i < m.nRows; i++) {
+        int *row = m.values[i];
+        for (int j = 0; j < m.nCols; j++) {
+            max_value = max(max_value, abs(row[j]));
+        }
+    }
+    return max_value;
+}
+
+
 
 
 

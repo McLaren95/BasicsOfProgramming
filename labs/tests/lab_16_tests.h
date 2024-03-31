@@ -41,3 +41,6 @@ void test_exercise_13();
 
 // тест задания 14.
 void test_exercise_14();
+
+// тест задания 15.
+void test_exercise_15();
