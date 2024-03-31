@@ -131,13 +131,28 @@ void exercise_12(matrix m) {
 }
 
 int exercise_13(matrix *ms, int n) {
-    int count = 0;
+    int amount = 0;
     for (int i = 0; i < n; i++) {
         if (hasAllNonDescendingRows(ms[i])) {
-            count++;
+            amount++;
         }
     }
-    return count;
+    return amount;
+}
+
+void exercise_14(matrix *ms, int n) {
+    int max_amount = 0;
+    int zero_row_amounts[n];
+    for (int i = 0; i < n; i++) {
+        int amount = countZeroRows(ms[i]);
+        zero_row_amounts[i] = amount;
+        max_amount = max(max_amount, amount);
+    }
+    for (int i = 0; i < n; i++) {
+        if (zero_row_amounts[i] == max_amount) {
+            outputMatrix(ms[i]);
+        }
+    }
 }
 
 

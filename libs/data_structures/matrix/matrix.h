@@ -124,4 +124,10 @@ bool isNonDescendingSorted(const int *a, int n);
 //проверяет, содержит ли каждая строка матрицы m неубывающую последовательность.
 bool hasAllNonDescendingRows(matrix m);
 
+//считает количество вхождений заданного значения value в массив a длиной n.
+int countValues(const int *a, int n, int value);
+
+// подсчитывает количество строк в матрице m, где все элементы строки равны 0.
+int countZeroRows(matrix m);
+
 #endif

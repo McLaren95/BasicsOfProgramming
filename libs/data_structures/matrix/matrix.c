@@ -387,7 +387,8 @@ void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, in
     }
     free(criteria_values);
 }
-long long sum(const int* array, int size) {
+
+long long sum(const int *array, int size) {
     long long sum = 0;
 
     for (int i = 0; i < size; ++i) {
@@ -396,7 +397,7 @@ long long sum(const int* array, int size) {
     return sum;
 }
 
-bool isNonDescendingSorted(const int* a, int n) {
+bool isNonDescendingSorted(const int *a, int n) {
     for (int i = 0; i < n - 1; i++) {
         if (a[i + 1] < a[i]) {
             return false;
@@ -413,6 +414,29 @@ bool hasAllNonDescendingRows(matrix m) {
     }
     return true;
 }
+
+int countValues(const int *a, int n, int value) {
+    int amount = 0;
+    for (int i = 0; i < n; i++) {
+        if (a[i] == value) {
+            amount++;
+        }
+    }
+    return amount;
+}
+
+int countZeroRows(matrix m) {
+    int amount = 0;
+    for (int i = 0; i < m.nRows; i++) {
+        if (countValues(m.values[i], m.nCols, 0) == m.nCols) {
+            amount++;
+        }
+    }
+    return amount;
+}
+
+
+
 
 
 

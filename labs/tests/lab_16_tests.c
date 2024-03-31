@@ -112,10 +112,17 @@ void test_exercise_12() {
 }
 
 void test_exercise_13() {
-    matrix *ms = getMemArrayOfMatrices(4,2,2);
-    inputMatrices(ms,4);
-    outputMatrices(ms,4);
-    int result = exercise_13(ms,4);
-    printf("%d",result);
-    freeMemMatrices(ms,4);
+    matrix *ms = getMemArrayOfMatrices(4, 2, 2);
+    inputMatrices(ms, 4);
+    outputMatrices(ms, 4);
+    int result = exercise_13(ms, 4);
+    printf("%d", result);
+    freeMemMatrices(ms, 4);
+}
+
+void test_exercise_14() {
+    matrix *ms = getMemArrayOfMatrices(5, 3, 2);
+    inputMatrices(ms, 5);
+    exercise_14(ms, 5);
+    freeMemMatrices(ms, 5);
 }
