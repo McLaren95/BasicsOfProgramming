@@ -124,3 +124,11 @@ int binarySearchMoreOrEqual_(const int *a, size_t n, int x) {
     }
     return right;
 }
+
+int max(int a, int b) {
+    return a > b ? a : b;
+}
+
+int min(int a, int b) {
+    return a < b ? a : b;
+}

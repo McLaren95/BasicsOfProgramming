@@ -62,4 +62,10 @@ int countIf_(const int *a, size_t n, int (*predicate )(int));
 // массива
 void deleteIf_(int *a, size_t *n, int (*deletePredicate )(int));
 
+// возвращает максимальный элемент из двух.
+int max(int a, int b);
+
+// возвращает минимальный элемент из двух.
+int min(int a, int b);
+
 #endif

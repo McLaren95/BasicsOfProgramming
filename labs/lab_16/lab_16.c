@@ -67,3 +67,20 @@ long long exercise_7(matrix m) {
     }
     return sum;
 }
+
+int exercise_8(matrix m) {
+    position max_pos = getMaxValuePos(m);
+    int min_value = INT_MAX;
+
+    for (int i = 0; i <= max_pos.rowIndex; ++i) {
+        int column_offset = (max_pos.rowIndex - i) * 2;
+        int start_column = max(0, max_pos.colIndex + 1 - column_offset);
+        int end_column = min(m.nCols - 1, max_pos.colIndex - 1 + column_offset);
+
+        for (int j = start_column; j <= end_column; ++j) {
+            min_value = min(min_value, m.values[i][j]);
+
+        }
+    }
+    return min_value;
+}

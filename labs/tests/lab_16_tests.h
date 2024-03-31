@@ -20,3 +20,6 @@ void test_exercise_6();
 
 //тест задания 7.
 void test_exercise_7();
+
+//тест задания 8.
+void test_exercise_8();

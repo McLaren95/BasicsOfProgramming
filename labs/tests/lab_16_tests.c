@@ -64,3 +64,11 @@ void test_exercise_7(){
     long long int result = exercise_7(m);
     printf("%lld",result);
 }
+
+void test_exercise_8(){
+    matrix m = getMemMatrix(3, 4);
+    inputMatrix(&m);
+    outputMatrix(m);
+    int result = exercise_8(m);
+    printf("%d",result);
+}
