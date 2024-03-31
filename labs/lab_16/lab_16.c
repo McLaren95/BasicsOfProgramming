@@ -115,4 +115,19 @@ int exercise_11(matrix m) {
     return amount;
 }
 
+void exercise_12(matrix m) {
+    if (m.nRows == 1) {
+        return;
+    }
+    int min_col = getMinValuePos(m).colIndex;
+    int col[m.nRows];
+    for (int i = 0; i < m.nRows; i++) {
+        col[i] = m.values[i][min_col];
+    }
+    int dest_row = m.nRows - 2;
+    for (int i = 0; i < m.nCols; i++) {
+        m.values[dest_row][i] = col[i];
+    }
+}
+
 

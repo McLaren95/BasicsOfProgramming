@@ -12,5 +12,6 @@ int main() {
     //test_exercise_9();
     //test_exercise_10();
     //test_exercise_11();
+    //test_exercise_12();
     return 0;
 }

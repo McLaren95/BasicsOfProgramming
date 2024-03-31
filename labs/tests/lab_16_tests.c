@@ -101,3 +101,12 @@ void test_exercise_11() {
     printf("%d", result);
     freeMemMatrix(&m);
 }
+
+void test_exercise_12() {
+    matrix m = getMemMatrix(3, 3);
+    inputMatrix(&m);
+    outputMatrix(m);
+    exercise_12(m);
+    outputMatrix(m);
+    freeMemMatrix(&m);
+}

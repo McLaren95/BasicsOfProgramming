@@ -32,3 +32,6 @@ void test_exercise_10();
 
 // тест задания 11.
 void test_exercise_11();
+
+// тест задания 12.
+void test_exercise_12();
