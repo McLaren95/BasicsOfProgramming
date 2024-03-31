@@ -396,6 +396,23 @@ long long sum(const int* array, int size) {
     return sum;
 }
 
+bool isNonDescendingSorted(const int* a, int n) {
+    for (int i = 0; i < n - 1; i++) {
+        if (a[i + 1] < a[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool hasAllNonDescendingRows(matrix m) {
+    for (int i = 0; i < m.nRows; i++) {
+        if (!isNonDescendingSorted(m.values[i], m.nCols)) {
+            return false;
+        }
+    }
+    return true;
+}
 
 
 

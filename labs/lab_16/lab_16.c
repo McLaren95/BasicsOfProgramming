@@ -130,4 +130,14 @@ void exercise_12(matrix m) {
     }
 }
 
+int exercise_13(matrix *ms, int n) {
+    int count = 0;
+    for (int i = 0; i < n; i++) {
+        if (hasAllNonDescendingRows(ms[i])) {
+            count++;
+        }
+    }
+    return count;
+}
+
 

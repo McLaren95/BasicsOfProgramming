@@ -116,6 +116,12 @@ matrix squareMatrixMultiplication(matrix *m1, matrix *m2);
 void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, int));
 
 // возвращает long long сумму.
-long long sum(const int* array, int size);
+long long sum(const int *array, int size);
+
+// проверяет, является ли массив a неубывающей последовательностью.
+bool isNonDescendingSorted(const int *a, int n);
+
+//проверяет, содержит ли каждая строка матрицы m неубывающую последовательность.
+bool hasAllNonDescendingRows(matrix m);
 
 #endif
