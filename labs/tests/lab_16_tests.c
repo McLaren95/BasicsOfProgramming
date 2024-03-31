@@ -57,34 +57,47 @@ void test_exercise_6() {
     printf("%d\n", result);
 }
 
-void test_exercise_7(){
+void test_exercise_7() {
     matrix m = getMemMatrix(3, 4);
     inputMatrix(&m);
     outputMatrix(m);
     long long int result = exercise_7(m);
-    printf("%lld",result);
+    printf("%lld", result);
+    freeMemMatrix(&m);
 }
 
-void test_exercise_8(){
+void test_exercise_8() {
     matrix m = getMemMatrix(3, 4);
     inputMatrix(&m);
     outputMatrix(m);
     int result = exercise_8(m);
-    printf("%d",result);
+    printf("%d", result);
+    freeMemMatrix(&m);
 }
 
-void test_exercise_9(){
+void test_exercise_9() {
     matrix m = getMemMatrix(3, 4);
     inputMatrix(&m);
     outputMatrix(m);
     exercise_9(m);
     outputMatrix(m);
+    freeMemMatrix(&m);
 }
 
-void test_exercise_10(){
+void test_exercise_10() {
     matrix m = getMemMatrix(6, 2);
     inputMatrix(&m);
     outputMatrix(m);
     int result = exercise_10(m);
-    printf("%d",result);
+    printf("%d", result);
+    freeMemMatrix(&m);
+}
+
+void test_exercise_11() {
+    matrix m = getMemMatrix(3, 4);
+    inputMatrix(&m);
+    outputMatrix(m);
+    int result = exercise_11(m);
+    printf("%d", result);
+    freeMemMatrix(&m);
 }

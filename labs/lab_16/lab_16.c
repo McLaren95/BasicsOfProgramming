@@ -85,13 +85,34 @@ int exercise_8(matrix m) {
 }
 
 void exercise_9(matrix m) {
-    insertionSortRowsMatrixByRowCriteriaF(m,getDistance);
+    insertionSortRowsMatrixByRowCriteriaF(m, getDistance);
 }
 
-int  exercise_10(matrix m) {
+int exercise_10(matrix m) {
     long long row_sums[m.nRows];
-    for (int i = 0;  i < m.nRows;i++){
-        row_sums[i] = sum(m.values[i],m.nCols);
+    for (int i = 0; i < m.nRows; i++) {
+        row_sums[i] = sum(m.values[i], m.nCols);
     }
-    return countEqual(row_sums,m.nRows);
+    return countEqual(row_sums, m.nRows);
 }
+
+int exercise_11(matrix m) {
+    int amount = 0;
+    for (int j = 0; j < m.nCols; j++) {
+        for (int i = 0; i < m.nRows; i++) {
+            int sum_other = 0;
+            for (int k = 0; k < m.nRows; k++) {
+                if (k != i) {
+                    sum_other += m.values[k][j];
+                }
+            }
+            if (m.values[i][j] > sum_other) {
+                amount++;
+                break;
+            }
+        }
+    }
+    return amount;
+}
+
+
