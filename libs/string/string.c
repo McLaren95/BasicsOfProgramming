@@ -28,17 +28,17 @@ char *findSpace(char *begin) {
 }
 
 char *findNonSpaceReverse(char *rbegin, const char *rend) {
-    while (rend != rbegin && isspace(*rend)) {
-        rend--;
+    while (rend != rbegin && isspace(*rbegin)) {
+        rbegin--;
     }
-    return rend;
+    return rbegin;
 }
 
 char *findSpaceReverse(char *rbegin, const char *rend) {
-    while (rend != rbegin && !isspace(*rend)) {
-        rend--;
+    while (rend != rbegin && !isspace(*rbegin)) {
+        rbegin--;
     }
-    return rend;
+    return rbegin;
 }
 
 int strcmp(const char *lhs, const char *rhs) {
@@ -50,8 +50,10 @@ int strcmp(const char *lhs, const char *rhs) {
 char *copy(const char *beginSource, const char *endSource, char *beginDestination) {
     size_t length = endSource - beginSource;
     memcpy(beginDestination, beginSource, sizeof(char) * length);
+    beginDestination[length] = '\0';
     return beginDestination + length;
 }
+
 
 char *copyIf(char *beginSource, const char *endSource, char *beginDestination, int (*f)(int)) {
     while (beginSource != endSource) {
@@ -66,9 +68,10 @@ char *copyIf(char *beginSource, const char *endSource, char *beginDestination, i
 char *copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDestination, int (*f)(int)) {
     while (rbeginSource != rendSource) {
         if (f(*rbeginSource)) {
-            memcpy(beginDestination++, rbeginSource, sizeof(char));
+            *beginDestination-- = *rbeginSource;
         }
         rbeginSource--;
     }
     return beginDestination;
 }
+
