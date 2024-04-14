@@ -40,3 +40,9 @@ char *findSpaceReverse(char *rbegin, const char *rend) {
     }
     return rend;
 }
+
+int strcmp(const char *lhs, const char *rhs) {
+    char leftChar, rightChar;
+    while ((leftChar = *(lhs++)) == (rightChar = *(rhs++)) && leftChar != '\0' && rightChar != '\0');
+    return (leftChar > rightChar) - (leftChar < rightChar);
+}

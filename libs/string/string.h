@@ -28,6 +28,11 @@ char *findNonSpaceReverse(char *rbegin, const char *rend);
 
 //возвращает указатель на первый пробельный символ справа, расположенный на ленте памяти,
 // начиная с rbegin и заканчивая rend. Если символ не найден, возвращается адрес rend.
-char* findSpaceReverse(char *rbegin, const char *rend);
+char *findSpaceReverse(char *rbegin, const char *rend);
+
+//Функция возвращает отрицательное значение, если lhs располагается до rhs
+//в лексикографическом порядке (как в словаре), значение 0, если lhs и rhs
+//равны, иначе – положительное значение.
+int strcmp(const char *lhs, const char *rhs);
 
 #endif
