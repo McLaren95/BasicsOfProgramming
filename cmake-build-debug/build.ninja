@@ -85,6 +85,12 @@ build CMakeFiles/untitled.dir/labs/tests/lab_16_tests.c.obj: C_COMPILER__untitle
   OBJECT_DIR = CMakeFiles\untitled.dir
   OBJECT_FILE_DIR = CMakeFiles\untitled.dir\labs\tests
 
+build CMakeFiles/untitled.dir/libs/string/string.c.obj: C_COMPILER__untitled_unscanned_Debug C$:/Users/maksi/CLionProjects/untitled/libs/string/string.c || cmake_object_order_depends_target_untitled
+  DEP_FILE = CMakeFiles\untitled.dir\libs\string\string.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\untitled.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled.dir\libs\string
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target untitled
@@ -93,7 +99,7 @@ build CMakeFiles/untitled.dir/labs/tests/lab_16_tests.c.obj: C_COMPILER__untitle
 #############################################
 # Link the executable untitled.exe
 
-build untitled.exe: C_EXECUTABLE_LINKER__untitled_Debug CMakeFiles/untitled.dir/main.c.obj CMakeFiles/untitled.dir/libs/algorithms/array/array.c.obj CMakeFiles/untitled.dir/libs/algorithms/algorithm.c.obj CMakeFiles/untitled.dir/libs/data_structures/bitset/bitset.c.obj CMakeFiles/untitled.dir/labs/lab_16/lab_16.c.obj CMakeFiles/untitled.dir/labs/tests/lab_16_tests.c.obj | libs/algorithms/libalgorithms.a libs/data_structures/libdata_structures.a libs/algorithms/libalgorithms.a || libs/algorithms/libalgorithms.a libs/data_structures/libdata_structures.a
+build untitled.exe: C_EXECUTABLE_LINKER__untitled_Debug CMakeFiles/untitled.dir/main.c.obj CMakeFiles/untitled.dir/libs/algorithms/array/array.c.obj CMakeFiles/untitled.dir/libs/algorithms/algorithm.c.obj CMakeFiles/untitled.dir/libs/data_structures/bitset/bitset.c.obj CMakeFiles/untitled.dir/labs/lab_16/lab_16.c.obj CMakeFiles/untitled.dir/labs/tests/lab_16_tests.c.obj CMakeFiles/untitled.dir/libs/string/string.c.obj | libs/algorithms/libalgorithms.a libs/data_structures/libdata_structures.a libs/algorithms/libalgorithms.a || libs/algorithms/libalgorithms.a libs/data_structures/libdata_structures.a
   FLAGS = -g
   LINK_LIBRARIES = libs/algorithms/libalgorithms.a  libs/data_structures/libdata_structures.a  libs/algorithms/libalgorithms.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\untitled.dir

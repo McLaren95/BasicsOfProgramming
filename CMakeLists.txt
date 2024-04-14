@@ -14,6 +14,8 @@ add_executable(untitled main.c
         labs/lab_16/lab_16.h
         labs/tests/lab_16_tests.c
         labs/tests/lab_16_tests.h
+        libs/string/string.c
+        libs/string/string.h
 )
 
 add_subdirectory(libs)
