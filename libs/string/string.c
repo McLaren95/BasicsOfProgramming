@@ -42,7 +42,13 @@ char *findSpaceReverse(char *rbegin, const char *rend) {
 }
 
 int strcmp(const char *lhs, const char *rhs) {
-    char leftChar, rightChar;
-    while ((leftChar = *(lhs++)) == (rightChar = *(rhs++)) && leftChar != '\0' && rightChar != '\0');
-    return (leftChar > rightChar) - (leftChar < rightChar);
+    char left_char, right_char;
+    while ((left_char = *(lhs++)) == (right_char = *(rhs++)) && left_char != '\0' && right_char != '\0');
+    return (left_char > right_char) - (left_char < right_char);
+}
+
+char *copy(const char *beginSource, const char *endSource, char *beginDestination) {
+    size_t length = endSource - beginSource;
+    memcpy(beginDestination, beginSource, sizeof(char) * length);
+    return beginDestination + length;
 }
