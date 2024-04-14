@@ -26,3 +26,10 @@ char *findSpace(char *begin) {
     }
     return begin;
 }
+
+char *findNonSpaceReverse(char *rbegin, const char *rend) {
+    while (rend != rbegin && isspace(*rend)) {
+        rend--;
+    }
+    return rend;
+}
