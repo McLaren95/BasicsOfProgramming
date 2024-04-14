@@ -33,3 +33,10 @@ char *findNonSpaceReverse(char *rbegin, const char *rend) {
     }
     return rend;
 }
+
+char *findSpaceReverse(char *rbegin, const char *rend) {
+    while (rend != rbegin && !isspace(*rend)) {
+        rend--;
+    }
+    return rend;
+}
