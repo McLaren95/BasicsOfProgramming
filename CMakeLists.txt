@@ -18,6 +18,8 @@ add_executable(untitled main.c
         libs/string/string.h
         libs/string/tasks/string_test.h
         libs/string/tasks/string_test.c
+        DiskretMath/diskretmath.h
+        DiskretMath/diskretmath.c
 )
 
 add_subdirectory(libs)
