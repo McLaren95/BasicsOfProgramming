@@ -27,9 +27,9 @@ void testRemoveExtraSpaces() {
 }
 
 void testLettersToStartDigitsToEnd() {
-    char* firstTest = moveStringToHeap("abc123");
-    char* secondTest = moveStringToHeap("123abc");
-    char* thirdTest = moveStringToHeap("a1b2c3");
+    char *firstTest = moveStringToHeap("abc123");
+    char *secondTest = moveStringToHeap("123abc");
+    char *thirdTest = moveStringToHeap("a1b2c3");
 
     forEachWord(firstTest, lettersToStartDigitsToEnd);
     forEachWord(secondTest, lettersToStartDigitsToEnd);
@@ -38,6 +38,24 @@ void testLettersToStartDigitsToEnd() {
     ASSERT_STRING("abc123", firstTest);
     ASSERT_STRING("abc123", secondTest);
     ASSERT_STRING("abc123", thirdTest);
+
+    free(firstTest);
+    free(secondTest);
+    free(thirdTest);
+}
+
+void testReplaceDigitsBySpaces() {
+    char *firstTest = moveStringToHeap("");
+    char *secondTest = moveStringToHeap("abc");
+    char *thirdTest = moveStringToHeap("1a2b3c4");
+
+    replaceDigitsBySpaces(firstTest);
+    replaceDigitsBySpaces(secondTest);
+    replaceDigitsBySpaces(thirdTest);
+
+    ASSERT_STRING("", firstTest);
+    ASSERT_STRING("abc", secondTest);
+    ASSERT_STRING(" a  b   c    ", thirdTest);
 
     free(firstTest);
     free(secondTest);

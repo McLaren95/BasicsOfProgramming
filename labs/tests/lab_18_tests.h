@@ -10,3 +10,6 @@ void testRemoveExtraSpaces();
 
 // тест функции LettersToStartDigitsToEnd.
 void testLettersToStartDigitsToEnd();
+
+// тест функции ReplaceDigitsBySpaces.
+void testReplaceDigitsBySpaces();

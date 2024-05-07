@@ -27,3 +27,7 @@ void forEachWord(char *string, void (*function)(WordDescriptor));
 bool isDigit(char character);
 
 bool isAlpha(char character);
+
+int getWordReverse(char *searchEnd, char *searchStart, WordDescriptor *word);
+
+void replaceDigitsBySpaces(char *s);
