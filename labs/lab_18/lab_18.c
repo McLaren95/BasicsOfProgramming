@@ -130,29 +130,29 @@ int compareWords(WordDescriptor left, WordDescriptor right) {
     return *left.begin - *right.begin;
 }
 
-void replace(char* string, char* replaceable, char* replacement) {
-    size_t replaceableLength = strlen_(replaceable);
-    size_t replacementLength = strlen_(replacement);
-    WordDescriptor replaceableWord = {replaceable, replaceable + replaceableLength};
-    WordDescriptor replacementWord = {replacement, replacement + replacementLength};
+void replace(char* s, char* w1, char* w2) {
+    size_t w1Length = strlen_(w1);
+    size_t w2Length = strlen_(w2);
+    WordDescriptor w1Word = {w1, w1 + w1Length};
+    WordDescriptor w2Word = {w2, w2 + w2Length};
     char* readPoint;
     char* writePoint;
 
-    if (replaceableLength > replacementLength) {
-        readPoint = string;
+    if (w1Length > w2Length) {
+        readPoint = s;
     } else {
-        *copy(string, string + strlen_(string), string_buffer) = '\0';
+        *copy(s, s + strlen_(s), string_buffer) = '\0';
         readPoint = string_buffer;
     }
 
-    writePoint = string;
+    writePoint = s;
     WordDescriptor cur_word;
 
     while (getWord(readPoint, &cur_word)) {
         writePoint = copy(readPoint, cur_word.begin, writePoint);
 
-        if (compareWords(cur_word, replaceableWord) == 0) {
-            writePoint = copy(replacementWord.begin, replacementWord.end, writePoint);
+        if (compareWords(cur_word, w1Word) == 0) {
+            writePoint = copy(w2Word.begin, w2Word.end, writePoint);
         } else {
             writePoint = copy(cur_word.begin, cur_word.end, writePoint);
         }
@@ -163,6 +163,42 @@ void replace(char* string, char* replaceable, char* replacement) {
     *writePoint = '\0';
 }
 
+bool areWordsSorted(char* string) {
+    WordDescriptor previousWord;
+
+    if (getWord(string, &previousWord)) {
+        WordDescriptor currentWord;
+
+        while (getWord(previousWord.end, &currentWord)) {
+            if (compareWords(previousWord, currentWord) > 0) {
+                return false;
+            }
+
+            previousWord = currentWord;
+        }
+    }
+
+    return true;
+}
+
+bool areWordsEqual(WordDescriptor w1, WordDescriptor w2) {
+    // Сравниваем длины слов
+    size_t length1 = w1.end - w1.begin;
+    size_t length2 = w2.end - w2.begin;
+
+    if (length1 != length2) {
+        return false;
+    }
+
+    // Сравниваем символы слов
+    for (size_t i = 0; i < length1; ++i) {
+        if (w1.begin[i] != w2.begin[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
 
 
 

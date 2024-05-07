@@ -16,3 +16,9 @@ void testReplaceDigitsBySpaces();
 
 // тест функции replace.
 void testReplace();
+
+// тест функции areWordsSorted.
+void testAreWordsSorted();
+
+// тест функции areWordsEqual.
+void testAreWordsEqual();

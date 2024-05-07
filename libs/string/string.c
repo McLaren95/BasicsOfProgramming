@@ -94,5 +94,18 @@ void assertString(char *expected, char *got, char const *fileName, char const *f
     }
 }
 
+void assertBoolean(bool expected, bool got, char const *fileName, char const *funcName, int line) {
+    if (got != expected) {
+        fprintf(stderr, "File %s\n", fileName);
+        fprintf(stderr, "%s - failed on line %d\n", funcName, line);
+        fprintf(stderr, "Expected: \"%s\"\n", (expected ? "true" : "false"));
+        fprintf(stderr, "Got: \"%s\"\n\n", (got ? "true" : "false"));
+    } else {
+        fprintf(stdout, "%s on line %d - OK\n", funcName, line);
+    }
+}
+
+
+
 
 

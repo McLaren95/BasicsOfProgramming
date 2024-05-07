@@ -5,4 +5,6 @@ int main() {
     printTest("LettersToStartDigitsToEnd", testLettersToStartDigitsToEnd);
     printTest("replaceDigitsBySpaces", testReplaceDigitsBySpaces);
     printTest("replace", testReplace);
+    printTest("areWordsSorted", testAreWordsSorted);
+    printTest("areWordsEqual", testAreWordsEqual);
 }

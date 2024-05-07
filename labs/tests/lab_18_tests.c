@@ -72,6 +72,33 @@ void testReplace() {
     free(test);
 }
 
+void testAreWordsSorted() {
+    char* firstTest = moveStringToHeap("abc def");
+    char* secondTest = moveStringToHeap("xyz xyz");
+    char* thirdTest = moveStringToHeap("xyz abc");
+
+    ASSERT_BOOLEAN(true, areWordsSorted(firstTest));
+    ASSERT_BOOLEAN(true, areWordsSorted(secondTest));
+    ASSERT_BOOLEAN(false, areWordsSorted(thirdTest));
+
+    free(firstTest);
+    free(secondTest);
+    free(thirdTest);
+}
+
+void testAreWordsEqual() {
+    WordDescriptor word1 = {"abc", "def"};
+    WordDescriptor word2 = {"xyz", "xyz"};
+    WordDescriptor word3 = {"xyz", "abc"};
+
+    ASSERT_BOOLEAN(false, areWordsEqual(word1, word2));
+    ASSERT_BOOLEAN(true, areWordsEqual(word2, word2));
+    ASSERT_BOOLEAN(false, areWordsEqual(word2, word3));
+}
+
+
+
+
 
 
 

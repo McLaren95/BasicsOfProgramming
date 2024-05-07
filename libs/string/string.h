@@ -14,6 +14,7 @@
 #define MAX_WORD_SIZE 20
 
 #define ASSERT_STRING(expected, got) assertString(expected, got, __FILE__, __FUNCTION__, __LINE__)
+#define ASSERT_BOOLEAN(expected, got) assertBoolean(expected, got, __FILE__, __FUNCTION__, __LINE__)
 static char string_buffer[MAX_STRING_SIZE + 1];
 
 //возвращает количество символов в строке (не считая ноль-символ)
@@ -69,5 +70,10 @@ char *moveStringToHeap(char *string);
 // и сообщение об успешном выполнении, если они совпадают,
 // включая информацию о месте вызова функции (имя файла, имя функции и номер строки).
 void assertString(char *expected, char *got, char const *fileName, char const *funcName, int line);
+
+//если полученное значение не совпадает с ожидаемым, программа выводит сообщение об ошибке, указывая на файл,
+// функцию и номер строки, где произошла ошибка, а также отображает ожидаемое и полученное значение.
+// Если значения совпадают, программа выводит сообщение об успешном выполнении теста.
+void assertBoolean(bool expected, bool got, char const *fileName, char const *funcName, int line);
 
 #endif

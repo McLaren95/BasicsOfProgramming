@@ -38,4 +38,12 @@ void replaceDigitsBySpaces(char *s);
 int compareWords(WordDescriptor left, WordDescriptor right);
 
 //заменяет в строке source все вхождения подстроки w1 на подстроку w2.
-void replace(char* string, char* replaceable, char* replacement);
+void replace(char* source, char* w1, char* w2);
+
+//проверяет, упорядочены ли слова лексикографически в данном предложении, сравнивая каждое слово с предыдущим
+// и возвращая false, если какое-либо слово идет после другого в алфавитном порядке, иначе возвращает true.
+bool areWordsSorted(char* string);
+
+//сравнивает два слова, проверяя их длины и затем сравнивая каждый символ, чтобы определить, равны ли они,
+// и возвращает true, если слова идентичны, и false в противном случае.
+bool areWordsEqual(WordDescriptor w1, WordDescriptor w2);
