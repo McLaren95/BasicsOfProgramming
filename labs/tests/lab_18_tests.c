@@ -63,7 +63,7 @@ void testReplaceDigitsBySpaces() {
 }
 
 void testReplace() {
-    char* test = moveStringToHeap("very bad cat");
+    char *test = moveStringToHeap("very bad cat");
 
     replace(test, "bad", "good");
 
@@ -73,9 +73,9 @@ void testReplace() {
 }
 
 void testAreWordsSorted() {
-    char* firstTest = moveStringToHeap("abc def");
-    char* secondTest = moveStringToHeap("xyz xyz");
-    char* thirdTest = moveStringToHeap("xyz abc");
+    char *firstTest = moveStringToHeap("abc def");
+    char *secondTest = moveStringToHeap("xyz xyz");
+    char *thirdTest = moveStringToHeap("xyz abc");
 
     ASSERT_BOOLEAN(true, areWordsSorted(firstTest));
     ASSERT_BOOLEAN(true, areWordsSorted(secondTest));
@@ -95,6 +95,21 @@ void testAreWordsEqual() {
     ASSERT_BOOLEAN(true, areWordsEqual(word2, word2));
     ASSERT_BOOLEAN(false, areWordsEqual(word2, word3));
 }
+
+void testPrintWordsInReverseOrder() {
+    char* testString = "This is a test string";
+
+    printf("Expected output:\n");
+    printf("string\n");
+    printf("test\n");
+    printf("a\n");
+    printf("is\n");
+    printf("This\n");
+
+    printf("Actual output:\n");
+    printWordsInReverseOrder(testString);
+}
+
 
 
 

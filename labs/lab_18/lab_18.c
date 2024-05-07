@@ -130,13 +130,13 @@ int compareWords(WordDescriptor left, WordDescriptor right) {
     return *left.begin - *right.begin;
 }
 
-void replace(char* s, char* w1, char* w2) {
+void replace(char *s, char *w1, char *w2) {
     size_t w1Length = strlen_(w1);
     size_t w2Length = strlen_(w2);
     WordDescriptor w1Word = {w1, w1 + w1Length};
     WordDescriptor w2Word = {w2, w2 + w2Length};
-    char* readPoint;
-    char* writePoint;
+    char *readPoint;
+    char *writePoint;
 
     if (w1Length > w2Length) {
         readPoint = s;
@@ -163,7 +163,7 @@ void replace(char* s, char* w1, char* w2) {
     *writePoint = '\0';
 }
 
-bool areWordsSorted(char* string) {
+bool areWordsSorted(char *string) {
     WordDescriptor previousWord;
 
     if (getWord(string, &previousWord)) {
@@ -199,6 +199,39 @@ bool areWordsEqual(WordDescriptor w1, WordDescriptor w2) {
 
     return true;
 }
+
+void getBagOfWords(char* searchStart, BagOfWords* bag) {
+    size_t wordIndex = 0;
+
+    while (getWord(searchStart, bag->words + wordIndex)) {
+        searchStart = bag->words[wordIndex].end;
+        wordIndex++;
+    }
+
+    bag->size = wordIndex;
+}
+
+void printWord(WordDescriptor word) {
+    if (*word.begin == '\0') {
+        return;
+    }
+
+    while (word.begin != word.end) {
+        putc(*word.begin, stdout);
+        word.begin++;
+    }
+}
+
+void printWordsInReverseOrder(char* string) {
+    getBagOfWords(string, &_bag);
+
+    for (size_t i = _bag.size - 1; i != -1; i--) {
+        printWord(_bag.words[i]);
+        putchar('\n');
+    }
+}
+
+
 
 
 

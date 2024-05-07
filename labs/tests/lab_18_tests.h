@@ -22,3 +22,6 @@ void testAreWordsSorted();
 
 // тест функции areWordsEqual.
 void testAreWordsEqual();
+
+// тест функции printWordsInReverseOrder()
+void testPrintWordsInReverseOrder();

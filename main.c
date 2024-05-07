@@ -7,4 +7,5 @@ int main() {
     printTest("replace", testReplace);
     printTest("areWordsSorted", testAreWordsSorted);
     printTest("areWordsEqual", testAreWordsEqual);
+    printTest("printWordsInReverseOrder", testPrintWordsInReverseOrder);
 }

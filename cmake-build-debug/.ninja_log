@@ -54,3 +54,7 @@
 6	101	7368074026963855	CMakeFiles/untitled.dir/main.c.obj	70ecd4e278a2c28c
 5	96	7368075508521328	CMakeFiles/untitled.dir/labs/tests/lab_18_tests.c.obj	da8f8db46a4b3bbe
 97	228	7368075509788841	untitled.exe	c3dbe7de859838d4
+8	221	7368094696075527	CMakeFiles/untitled.dir/main.c.obj	70ecd4e278a2c28c
+15	222	7368094696075527	CMakeFiles/untitled.dir/labs/tests/lab_18_tests.c.obj	da8f8db46a4b3bbe
+12	719	7368094701033362	CMakeFiles/untitled.dir/labs/lab_18/lab_18.c.obj	f657561516676c62
+719	889	7368094702698893	untitled.exe	c3dbe7de859838d4
