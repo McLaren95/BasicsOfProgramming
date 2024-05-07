@@ -5,6 +5,9 @@
 #include <ctype.h>
 #include <memory.h>
 #include <stdio.h>
+#include <stdlib.h>
+
+#define ASSERT_STRING(expected, got) assertString(expected, got, __FILE__, __FUNCTION__, __LINE__)
 
 //возвращает количество символов в строке (не считая ноль-символ)
 size_t strlen_(const char *begin);
@@ -50,5 +53,14 @@ char *copyIf(char *beginSource, const char *endSource, char *beginDestination, i
 //заканчивая rendSource, удовлетворяющие функции-предикату f.
 // Функция возвращает значение beginDestination по окончанию работы функции.
 char *copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDestination, int (*f)(int));
+
+// выделяет память в куче для копии переданной строки и копирует содержимое
+// строки в выделенную память, возвращая указатель на эту копию.
+char *moveStringToHeap(char *string);
+
+//сравнивает две строки и выводит сообщение об ошибке, если они не совпадают,
+// и сообщение об успешном выполнении, если они совпадают,
+// включая информацию о месте вызова функции (имя файла, имя функции и номер строки).
+void assertString(char *expected, char *got, char const *fileName, char const *funcName, int line);
 
 #endif

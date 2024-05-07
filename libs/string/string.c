@@ -75,3 +75,25 @@ char *copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDesti
     return beginDestination;
 }
 
+char *moveStringToHeap(char *string) {
+    size_t size = sizeof(char) * (strlen_(string) + 1);
+    char *heapString = malloc(size);
+
+    memcpy(heapString, string, size);
+
+    return heapString;
+}
+
+void assertString(char *expected, char *got, char const *fileName, char const *funcName, int line) {
+    if (strcmp(expected, got)) {
+        fprintf(stderr, "File %s\n", fileName);
+        fprintf(stderr, "%s - failed on line %d\n", funcName, line);
+        fprintf(stderr, "Expected: \"%s\"\n", expected);
+        fprintf(stderr, "Got: \"%s\"\n\n", got);
+    } else {
+        fprintf(stdout, "%s on line %d - OK\n", funcName, line);
+    }
+}
+
+
+
