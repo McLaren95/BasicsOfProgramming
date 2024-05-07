@@ -25,3 +25,41 @@ void removeExtraSpaces(char *s) {
         *outputPointer = '\0';
     }
 }
+
+int getWord(char *beginSearch, WordDescriptor *word) {
+    word->begin = findNonSpace(beginSearch);
+
+    if (*word->begin == '\0') {
+        return 0;
+    }
+
+    word->end = findSpace(word->begin);
+
+    return 1;
+}
+
+bool isDigit(char character) {
+    return isdigit(character);
+}
+
+bool isAlpha(char character) {
+    return isalpha(character);
+}
+
+void lettersToStartDigitsToEnd(WordDescriptor word) {
+    char *stringBufferEnd = copy(word.begin, word.end, string_buffer);
+    char *digitsEnd = copyIf(string_buffer, stringBufferEnd, word.begin, isAlpha);
+
+    copyIf(string_buffer, stringBufferEnd, digitsEnd, isDigit);
+}
+
+void forEachWord(char *string, void (*function)(WordDescriptor)) {
+    char *searchPoint = string;
+    WordDescriptor word;
+
+    while (getWord(searchPoint, &word)) {
+        function(word);
+
+        searchPoint = word.end;
+    }
+}

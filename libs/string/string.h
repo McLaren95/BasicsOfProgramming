@@ -6,8 +6,15 @@
 #include <memory.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+
+#define CHAR_SIZE sizeof(char)
+#define MAX_STRING_SIZE 100
+#define MAX_N_WORDS_IN_STRING 100
+#define MAX_WORD_SIZE 20
 
 #define ASSERT_STRING(expected, got) assertString(expected, got, __FILE__, __FUNCTION__, __LINE__)
+static char string_buffer[MAX_STRING_SIZE + 1];
 
 //возвращает количество символов в строке (не считая ноль-символ)
 size_t strlen_(const char *begin);
@@ -47,7 +54,7 @@ char *copy(const char *beginSource, const char *endSource, char *beginDestinatio
 //записывает по адресу beginDestination элементы из фрагмента памяти начиная с beginSource
 //заканчивая endSource, удовлетворяющие функции-предикату f. Функция
 //возвращает указатель на следующий свободный для записи фрагмент в памяти.
-char *copyIf(char *beginSource, const char *endSource, char *beginDestination, int (*f)(int));
+char *copyIf(char *beginSource, const char *endSource, char *beginDestination, bool (*f)(char));
 
 // записывает по адресу beginDestination элементы из фрагмента памяти начиная с rbeginSource
 //заканчивая rendSource, удовлетворяющие функции-предикату f.

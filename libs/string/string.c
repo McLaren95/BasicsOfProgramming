@@ -55,7 +55,7 @@ char *copy(const char *beginSource, const char *endSource, char *beginDestinatio
 }
 
 
-char *copyIf(char *beginSource, const char *endSource, char *beginDestination, int (*f)(int)) {
+char *copyIf(char *beginSource, const char *endSource, char *beginDestination, bool (*f)(char)) {
     while (beginSource != endSource) {
         if (f(*beginSource)) {
             memcpy(beginDestination++, beginSource, sizeof(char));

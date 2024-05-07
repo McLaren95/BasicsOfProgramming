@@ -1,5 +1,6 @@
 #include "labs/tests/lab_18_tests.h"
 
-int main(){
+int main() {
     printTest("removeExtraSpaces", testRemoveExtraSpaces);
+    printTest("LettersToStartDigitsToEnd", testLettersToStartDigitsToEnd);
 }

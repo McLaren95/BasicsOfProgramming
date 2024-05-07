@@ -7,3 +7,6 @@ void printTest(char *testableComponent, void (*testingFunction)());
 
 // тест функции removeExtraSpaces.
 void testRemoveExtraSpaces();
+
+// тест функции LettersToStartDigitsToEnd.
+void testLettersToStartDigitsToEnd();
