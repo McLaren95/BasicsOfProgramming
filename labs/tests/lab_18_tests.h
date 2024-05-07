@@ -13,3 +13,6 @@ void testLettersToStartDigitsToEnd();
 
 // тест функции ReplaceDigitsBySpaces.
 void testReplaceDigitsBySpaces();
+
+// тест функции replace.
+void testReplace();

@@ -54,7 +54,6 @@ char *copy(const char *beginSource, const char *endSource, char *beginDestinatio
     return beginDestination + length;
 }
 
-
 char *copyIf(char *beginSource, const char *endSource, char *beginDestination, bool (*f)(char)) {
     while (beginSource != endSource) {
         if (f(*beginSource)) {

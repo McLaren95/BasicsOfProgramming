@@ -61,3 +61,19 @@ void testReplaceDigitsBySpaces() {
     free(secondTest);
     free(thirdTest);
 }
+
+void testReplace() {
+    char* test = moveStringToHeap("very bad cat");
+
+    replace(test, "bad", "good");
+
+    ASSERT_STRING("very good cat", test);
+
+    free(test);
+}
+
+
+
+
+
+

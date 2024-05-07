@@ -30,4 +30,12 @@ bool isAlpha(char character);
 
 int getWordReverse(char *searchEnd, char *searchStart, WordDescriptor *word);
 
+//заменяет все цифры в строке на пробелы, в соответствии с их числовым значением.
 void replaceDigitsBySpaces(char *s);
+
+//сравнивает два слова, представленных структурами WordDescriptor,
+// и возвращает результат сравнения на основе лексикографического порядка.
+int compareWords(WordDescriptor left, WordDescriptor right);
+
+//заменяет в строке source все вхождения подстроки w1 на подстроку w2.
+void replace(char* string, char* replaceable, char* replacement);

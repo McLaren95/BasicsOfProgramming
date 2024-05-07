@@ -27,16 +27,26 @@ void removeExtraSpaces(char *s) {
 }
 
 int getWord(char *beginSearch, WordDescriptor *word) {
-    word->begin = findNonSpace(beginSearch);
+    // Ищем начало слова, пропуская пробелы
+    while (isspace(*beginSearch)) {
+        beginSearch++;
+    }
+    word->begin = beginSearch;
 
-    if (*word->begin == '\0') {
+    // Если достигнут конец строки, возвращаем 0
+    if (*beginSearch == '\0') {
         return 0;
     }
 
-    word->end = findSpace(word->begin);
+    // Ищем конец слова, ища первый пробел или конец строки
+    while (*beginSearch != '\0' && !isspace(*beginSearch)) {
+        beginSearch++;
+    }
+    word->end = beginSearch;
 
     return 1;
 }
+
 
 bool isDigit(char character) {
     return isdigit(character);
@@ -98,4 +108,66 @@ void replaceDigitsBySpaces(char *s) {
 
     *copy(string_buffer, writePoint, s) = '\0';
 }
+
+int compareWords(WordDescriptor left, WordDescriptor right) {
+    while (left.begin != left.end && right.begin != right.end && *left.begin == *right.begin) {
+        left.begin++;
+        right.begin++;
+    }
+
+    if (left.begin == left.end && right.begin == right.end) {
+        return 0;
+    }
+
+    if (left.begin == left.end && right.begin != right.end) {
+        return -(*right.begin);
+    }
+
+    if (left.begin != left.end && right.begin == right.end) {
+        return *left.begin;
+    }
+
+    return *left.begin - *right.begin;
+}
+
+void replace(char* string, char* replaceable, char* replacement) {
+    size_t replaceableLength = strlen_(replaceable);
+    size_t replacementLength = strlen_(replacement);
+    WordDescriptor replaceableWord = {replaceable, replaceable + replaceableLength};
+    WordDescriptor replacementWord = {replacement, replacement + replacementLength};
+    char* readPoint;
+    char* writePoint;
+
+    if (replaceableLength > replacementLength) {
+        readPoint = string;
+    } else {
+        *copy(string, string + strlen_(string), string_buffer) = '\0';
+        readPoint = string_buffer;
+    }
+
+    writePoint = string;
+    WordDescriptor cur_word;
+
+    while (getWord(readPoint, &cur_word)) {
+        writePoint = copy(readPoint, cur_word.begin, writePoint);
+
+        if (compareWords(cur_word, replaceableWord) == 0) {
+            writePoint = copy(replacementWord.begin, replacementWord.end, writePoint);
+        } else {
+            writePoint = copy(cur_word.begin, cur_word.end, writePoint);
+        }
+
+        readPoint = cur_word.end;
+    }
+
+    *writePoint = '\0';
+}
+
+
+
+
+
+
+
+
 

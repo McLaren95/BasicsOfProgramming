@@ -4,4 +4,5 @@ int main() {
     printTest("removeExtraSpaces", testRemoveExtraSpaces);
     printTest("LettersToStartDigitsToEnd", testLettersToStartDigitsToEnd);
     printTest("replaceDigitsBySpaces", testReplaceDigitsBySpaces);
+    printTest("replace", testReplace);
 }
