@@ -110,6 +110,21 @@ void testPrintWordsInReverseOrder() {
     printWordsInReverseOrder(testString);
 }
 
+void testCountPalindromes() {
+    char* firstTest = moveStringToHeap("abba baab");
+    char* secondTest = moveStringToHeap("abcd dcba");
+    char* thirdTest = moveStringToHeap("abba baab abc cbbc");
+
+    ASSERT_INT(2, countPalindromes(firstTest));
+    ASSERT_INT(0, countPalindromes(secondTest));
+    ASSERT_INT(3, countPalindromes(thirdTest));
+
+    free(firstTest);
+    free(secondTest);
+    free(thirdTest);
+}
+
+
 
 
 

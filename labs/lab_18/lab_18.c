@@ -200,7 +200,7 @@ bool areWordsEqual(WordDescriptor w1, WordDescriptor w2) {
     return true;
 }
 
-void getBagOfWords(char* searchStart, BagOfWords* bag) {
+void getBagOfWords(char *searchStart, BagOfWords *bag) {
     size_t wordIndex = 0;
 
     while (getWord(searchStart, bag->words + wordIndex)) {
@@ -222,7 +222,7 @@ void printWord(WordDescriptor word) {
     }
 }
 
-void printWordsInReverseOrder(char* string) {
+void printWordsInReverseOrder(char *string) {
     getBagOfWords(string, &_bag);
 
     for (size_t i = _bag.size - 1; i != -1; i--) {
@@ -230,6 +230,38 @@ void printWordsInReverseOrder(char* string) {
         putchar('\n');
     }
 }
+
+bool isPalindrome(WordDescriptor word) {
+    word.end--;
+
+    while (word.begin < word.end) {
+        if (*word.begin != *word.end) {
+            return false;
+        }
+
+        word.begin++;
+        word.end--;
+    }
+
+    return true;
+}
+
+int countPalindromes(char *string) {
+    int count = 0;
+    char *searchPoint = string;
+    WordDescriptor word;
+
+    while (getWord(searchPoint, &word)) {
+        if (isPalindrome(word)) {
+            count++;
+        }
+
+        searchPoint = word.end;
+    }
+
+    return count;
+}
+
 
 
 

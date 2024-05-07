@@ -23,5 +23,8 @@ void testAreWordsSorted();
 // тест функции areWordsEqual.
 void testAreWordsEqual();
 
-// тест функции printWordsInReverseOrder()
+// тест функции printWordsInReverseOrder.
 void testPrintWordsInReverseOrder();
+
+// тест функции countPalindromes.
+void testCountPalindromes();

@@ -58,3 +58,13 @@
 15	222	7368094696075527	CMakeFiles/untitled.dir/labs/tests/lab_18_tests.c.obj	da8f8db46a4b3bbe
 12	719	7368094701033362	CMakeFiles/untitled.dir/labs/lab_18/lab_18.c.obj	f657561516676c62
 719	889	7368094702698893	untitled.exe	c3dbe7de859838d4
+8	239	7368108973768517	CMakeFiles/untitled.dir/main.c.obj	70ecd4e278a2c28c
+14	245	7368108973859388	CMakeFiles/untitled.dir/libs/string/tasks/string_test.c.obj	a098fd0f12a6abdb
+12	249	7368108973869376	CMakeFiles/untitled.dir/libs/string/string.c.obj	17885751d15c6092
+246	392	7368108975378402	CMakeFiles/untitled.dir/labs/tests/lab_18_tests.c.obj	da8f8db46a4b3bbe
+240	406	7368108975558447	CMakeFiles/untitled.dir/labs/lab_18/lab_18.c.obj	f657561516676c62
+406	710	7368108978521490	untitled.exe	c3dbe7de859838d4
+6	137	7368119114395109	CMakeFiles/untitled.dir/main.c.obj	70ecd4e278a2c28c
+12	139	7368119114415056	CMakeFiles/untitled.dir/labs/tests/lab_18_tests.c.obj	da8f8db46a4b3bbe
+10	171	7368119114764127	CMakeFiles/untitled.dir/labs/lab_18/lab_18.c.obj	f657561516676c62
+171	317	7368119116180326	untitled.exe	c3dbe7de859838d4

@@ -8,4 +8,5 @@ int main() {
     printTest("areWordsSorted", testAreWordsSorted);
     printTest("areWordsEqual", testAreWordsEqual);
     printTest("printWordsInReverseOrder", testPrintWordsInReverseOrder);
+    printTest("countPalindromes", testCountPalindromes);
 }

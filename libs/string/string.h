@@ -15,6 +15,7 @@
 
 #define ASSERT_STRING(expected, got) assertString(expected, got, __FILE__, __FUNCTION__, __LINE__)
 #define ASSERT_BOOLEAN(expected, got) assertBoolean(expected, got, __FILE__, __FUNCTION__, __LINE__)
+#define ASSERT_INT(expected, got) assertInt(expected, got, __FILE__, __FUNCTION__, __LINE__)
 static char string_buffer[MAX_STRING_SIZE + 1];
 
 //возвращает количество символов в строке (не считая ноль-символ)
@@ -75,5 +76,10 @@ void assertString(char *expected, char *got, char const *fileName, char const *f
 // функцию и номер строки, где произошла ошибка, а также отображает ожидаемое и полученное значение.
 // Если значения совпадают, программа выводит сообщение об успешном выполнении теста.
 void assertBoolean(bool expected, bool got, char const *fileName, char const *funcName, int line);
+
+//проверяет целочисленные значения и выводит сообщение об ошибке,
+// если полученное значение отличается от ожидаемого,
+// и сообщает об успешном прохождении теста в противном случае.
+void assertInt(int expected, int got, char const *fileName, char const *funcName, int line);
 
 #endif

@@ -57,10 +57,17 @@ bool areWordsSorted(char *string);
 bool areWordsEqual(WordDescriptor w1, WordDescriptor w2);
 
 //получает позиции начала и конца каждого слова строки.
-void getBagOfWords(char* searchStart, BagOfWords* bag);
+void getBagOfWords(char *searchStart, BagOfWords *bag);
 
 //выводит слово, представленное структурой WordDescriptor, на стандартный вывод (stdout).
 void printWord(WordDescriptor word);
 
-//
-void printWordsInReverseOrder(char* string);
+//печатает слова из строки в обратном порядке.
+void printWordsInReverseOrder(char *string);
+
+//проверяет, является ли слово, заданное структурой WordDescriptor, палиндромом.
+bool isPalindrome(WordDescriptor word);
+
+//подсчитывает количество палиндромов в строке, разбивая строку на слова
+// и проверяя каждое слово на палиндромность.
+int countPalindromes(char *string);
