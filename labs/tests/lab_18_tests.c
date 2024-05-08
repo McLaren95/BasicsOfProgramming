@@ -97,7 +97,7 @@ void testAreWordsEqual() {
 }
 
 void testPrintWordsInReverseOrder() {
-    char* testString = "This is a test string";
+    char *testString = "This is a test string";
 
     printf("Expected output:\n");
     printf("string\n");
@@ -111,9 +111,9 @@ void testPrintWordsInReverseOrder() {
 }
 
 void testCountPalindromes() {
-    char* firstTest = moveStringToHeap("abba baab");
-    char* secondTest = moveStringToHeap("abcd dcba");
-    char* thirdTest = moveStringToHeap("abba baab abc cbbc");
+    char *firstTest = moveStringToHeap("abba baab");
+    char *secondTest = moveStringToHeap("abcd dcba");
+    char *thirdTest = moveStringToHeap("abba baab abc cbbc");
 
     ASSERT_INT(2, countPalindromes(firstTest));
     ASSERT_INT(0, countPalindromes(secondTest));
@@ -123,6 +123,20 @@ void testCountPalindromes() {
     free(secondTest);
     free(thirdTest);
 }
+
+void testAlternateWordsMerge() {
+    char *left = "My is beautiful she cat";
+    char *right = "dog very but eats food";
+
+    char *destination = malloc(sizeof(char) * (strlen_(left) + strlen_(right) + 1));
+
+    alternateWordsMerge("My is beautiful she cat", "dog very but eats food", destination);
+
+    ASSERT_STRING("My dog is very beautiful but she eats cat food", destination);
+
+    free(destination);
+}
+
 
 
 

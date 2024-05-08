@@ -71,3 +71,7 @@ bool isPalindrome(WordDescriptor word);
 //подсчитывает количество палиндромов в строке, разбивая строку на слова
 // и проверяя каждое слово на палиндромность.
 int countPalindromes(char *string);
+
+//объединяет слова из двух строк в чередующимся порядке,
+// используя пробел в качестве разделителя, и записывает результат в третью строку.
+void alternateWordsMerge(char *left, char *right, char *destination);

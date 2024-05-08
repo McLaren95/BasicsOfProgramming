@@ -9,4 +9,5 @@ int main() {
     printTest("areWordsEqual", testAreWordsEqual);
     printTest("printWordsInReverseOrder", testPrintWordsInReverseOrder);
     printTest("countPalindromes", testCountPalindromes);
+    printTest("alternateWordsMerge", testAlternateWordsMerge);
 }
