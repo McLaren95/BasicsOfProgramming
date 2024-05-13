@@ -171,4 +171,10 @@ void outputArray_LL(const long long *a, size_t n) {
     printf("\n");
 }
 
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
 

@@ -302,3 +302,5 @@ void alternateWordsMerge(char *left, char *right, char *destination) {
 
 
 
+
+

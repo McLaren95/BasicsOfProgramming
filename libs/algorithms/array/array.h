@@ -83,4 +83,8 @@ int cmp_long_long(const void *pa, const void *pb);
 // выводит массив типа long long.
 void outputArray_LL(const long long *a, size_t n);
 
+//принимает два указателя на целочисленные переменные и меняет их значения местами,
+// используя временную переменную для сохранения одного из значений.
+void swap(int *a, int *b);
+
 #endif

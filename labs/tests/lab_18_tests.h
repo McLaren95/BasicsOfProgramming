@@ -31,3 +31,6 @@ void testCountPalindromes();
 
 // тест функции alternateWordsMerge.
 void testAlternateWordsMerge();
+
+// тест функции reverseWordsOrder.
+void testReverseWordsOrder();
