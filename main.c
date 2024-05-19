@@ -1,59 +1,47 @@
 #include "labs/lab_19/lab_19.h"
 
-void generateTestData(const char *filename, int count) {
-    const char *sampleWords[] = {
-            "apple", "banana", "orange", "grape", "fruit", "vegetable", "carrot", "broccoli", "potato", "tomato",
-            "animal", "dog", "cat", "bird", "fish", "insect", "bee", "ant", "butterfly", "spider",
-            "vehicle", "car", "bike", "truck", "bus", "train", "airplane", "boat", "ship", "submarine"
-    };
-    int numSampleWords = sizeof(sampleWords) / sizeof(sampleWords[0]);
 
-    FILE *file = fopen(filename, "w");
-    if (!file) {
-        perror("Failed to open file for writing");
-        exit(EXIT_FAILURE);
+void generateTestData(const char* filename) {
+    FILE* file = fopen(filename, "w");
+    if (file == NULL) {
+        printf("Error opening file.\n");
+        exit(1);
     }
 
-    srand(time(NULL));
-
-    for (int i = 0; i < count; i++) {
-        int numWords = rand() % 10 + 1;
-        for (int j = 0; j < numWords; j++) {
-            fprintf(file, "%s ", sampleWords[rand() % numSampleWords]);
-        }
-        fprintf(file, "\n");
-    }
+    fprintf(file, "This is a test sentence with long words\n");
+    fprintf(file, "Another sentence with some longer words\n");
+    fprintf(file, "Short words\n");
+    fprintf(file, "One\n");
+    fprintf(file, "A sentence with very long words and some short\n");
 
     fclose(file);
 }
 
+
 int main() {
-    const char *inputFilename = "input_data.txt";
-    const char *outputFilename = "output_data.txt";
+    generateTestData("test.txt");
 
-    generateTestData(inputFilename, 10);
-
-    FILE *inputFile = fopen(inputFilename, "r");
-    if (!inputFile) {
-        perror("Failed to open file for reading");
+    FILE* input = fopen("test.txt", "r");
+    if (input == NULL) {
+        printf("Error opening input file.\n");
         return 1;
     }
 
-    FILE *outputFile = fopen(outputFilename, "w");
-    if (!outputFile) {
-        perror("Failed to open file for writing");
-        fclose(inputFile);
+    FILE* output = fopen("output.txt", "w");
+    if (output == NULL) {
+        printf("Error opening output file.\n");
+        fclose(input);
         return 1;
     }
 
-    const char content[] = "an";
-    filterWordsByPattern(inputFile, outputFile, content);
+    printLongestWords(input, output);
 
-    fclose(inputFile);
-    fclose(outputFile);
+    fclose(input);
+    fclose(output);
 
-    printf("Filtration is complete. Check the output_data.txt file for results.\n");
+    printf("Program executed successfully.\n");
 
     return 0;
 }
+
 

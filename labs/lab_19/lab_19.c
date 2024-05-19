@@ -133,5 +133,30 @@ void filterWordsByPattern(FILE *input, FILE *output, const char *content) {
     }
 }
 
+void printLongestWords(FILE* input, FILE* output) {
+    char line[100];
+
+    while (fgets(line, 100, input) != NULL) {
+        char* word = strtok(line, " ");
+        char* longestWord = word;
+        size_t biggestLength = strlen(longestWord);
+
+        word = strtok(NULL, " ");
+
+        while (word != NULL) {
+            size_t length = strlen(word);
+
+            if (length > biggestLength) {
+                longestWord = word;
+                biggestLength = length;
+            }
+
+            word = strtok(NULL, " ");
+        }
+
+        fprintf(output, "%s\n", longestWord);
+    }
+}
+
 
 

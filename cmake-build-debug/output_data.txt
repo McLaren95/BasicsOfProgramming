@@ -1,5 +1,0 @@
-ant 
-ant 
-banana airplane animal 
-banana 
-ant 
