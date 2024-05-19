@@ -110,5 +110,28 @@ void evaluateAndWriteExpression(const char *sentence, FILE *outputFile) {
     }
 }
 
+void filterWordsByPattern(FILE *input, FILE *output, const char *content) {
+    char line[256];
+
+    while (fgets(line, sizeof(line), input) != NULL) {
+
+        line[strcspn(line, "\n")] = 0;
+        char *word = strtok(line, " ");
+        int wordFound = 0;
+
+        while (word != NULL) {
+            if (strstr(word, content)) {
+                fprintf(output, "%s ", word);
+                wordFound = 1;
+            }
+            word = strtok(NULL, " ");
+        }
+
+        if (wordFound) {
+            fprintf(output, "\n");
+        }
+    }
+}
+
 
 

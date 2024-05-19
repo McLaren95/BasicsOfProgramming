@@ -21,3 +21,7 @@ static int performOperation(int leftOperand, int rightOperand, char operator, in
 // разбирает арифметическое выражение из строки,
 // выполняет вычисления и записывает результат или сообщение об ошибке в указанный файл.
 void evaluateAndWriteExpression(const char *sentence, FILE *outputFile);
+
+//фильтрует слова в текстовом файле, сохраняя только те,
+// которые содержат указанную последовательность символов, и записывает их в выходной файл.
+void filterWordsByPattern(FILE *input, FILE *output, const char *content);
