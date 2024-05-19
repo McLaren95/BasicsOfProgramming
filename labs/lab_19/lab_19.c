@@ -36,3 +36,11 @@ void convertMatrixRowsToColumns(const char *inputFilename, const char *outputFil
     fclose(input);
     fclose(output);
 }
+
+void convertToFloatingPoint(FILE* input, FILE* output) {
+    double number;
+
+    while (fscanf(input, "%lf", &number) == 1) {
+        fprintf(output, "%.2f\n", number);
+    }
+}

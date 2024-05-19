@@ -73,91 +73,91 @@ int ordered_array_set_complement(int *set_universum, int *set1, int *set_complem
     return amount_elements;
 }
 
-void printBinVector(int subset[], int n, int index) {
-    printf("%d) { ", index);
-    for (int i = 0; i < n; i++) {
-        printf("%d", subset[i]);
-    }
-    printf(" }\n");
-}
+//void printBinVector(int subset[], int n, int index) {
+//    printf("%d) { ", index);
+//    for (int i = 0; i < n; i++) {
+//        printf("%d", subset[i]);
+//    }
+//    printf(" }\n");
+//}
+//
+//void printSubsetFromBinVector(int subset[], int n) {
+//    printf("{");
+//    int isComma = 0;
+//    for (int i = 0; i < n; i++) {
+//        if (subset[i] == 1) {
+//            if (isComma) {
+//                printf(",");
+//            }
+//            printf("%d", i + 1);
+//            isComma = 1;
+//        }
+//    }
+//    printf("}\n");
+//}
 
-void printSubsetFromBinVector(int subset[], int n) {
-    printf("{");
-    int isComma = 0;
-    for (int i = 0; i < n; i++) {
-        if (subset[i] == 1) {
-            if (isComma) {
-                printf(",");
-            }
-            printf("%d", i + 1);
-            isComma = 1;
-        }
-    }
-    printf("}\n");
-}
+//void generateBinVectors(int n) {
+//    int *subset = (int *) malloc(n * sizeof(int));
+//    int count = 0;
+//    for (int i = 0; i < n; i++) {
+//        subset[i] = 0;
+//    }
+//    printBinVector(subset, n, count);
+//    for (int i = 1; i < (1 << n); i++) {
+//        int j = n - 1;
+//        while (subset[j] != 0) {
+//            subset[j] = 0;
+//            j--;
+//        }
+//        subset[j] = 1;
+//        count++;
+//        printBinVector(subset, n, count);
+//
+//    }
+//    printf("Amount subsets = %d", ++count);
+//    free(subset);
+//}
 
-void generateBinVectors(int n) {
-    int *subset = (int *) malloc(n * sizeof(int));
-    int count = 0;
-    for (int i = 0; i < n; i++) {
-        subset[i] = 0;
-    }
-    printBinVector(subset, n, count);
-    for (int i = 1; i < (1 << n); i++) {
-        int j = n - 1;
-        while (subset[j] != 0) {
-            subset[j] = 0;
-            j--;
-        }
-        subset[j] = 1;
-        count++;
-        printBinVector(subset, n, count);
+//void generateSubsets(int n) {
+//    int *subset = (int *) malloc(n * sizeof(int));
+//    int count = 0;
+//    for (int i = 0; i < n; i++) {
+//        subset[i] = 0;
+//    }
+//    printSubsetFromBinVector(subset, n);
+//    for (int i = 1; i < (1 << n); i++) {
+//        int j = n - 1;
+//        while (subset[j] != 0) {
+//            subset[j] = 0;
+//            j--;
+//        }
+//        subset[j] = 1;
+//        count++;
+//        printSubsetFromBinVector(subset, n);
+//
+//    }
+//    printf("Amount subsets = %d", ++count);
+//    free(subset);
+//}
 
-    }
-    printf("Amount subsets = %d", ++count);
-    free(subset);
-}
+//void generateSubsetRecursive(int subset[], int n, int index) {
+//    if (index == n) {
+//        printSubsetFromBinVector(subset, n);
+//        return;
+//    }
+//
+//    for (int x = 0; x < 2; x++) {
+//        subset[index] = x;
+//        generateSubsetRecursive(subset, n, index + 1);
+//    }
+//}
 
-void generateSubsets(int n) {
-    int *subset = (int *) malloc(n * sizeof(int));
-    int count = 0;
-    for (int i = 0; i < n; i++) {
-        subset[i] = 0;
-    }
-    printSubsetFromBinVector(subset, n);
-    for (int i = 1; i < (1 << n); i++) {
-        int j = n - 1;
-        while (subset[j] != 0) {
-            subset[j] = 0;
-            j--;
-        }
-        subset[j] = 1;
-        count++;
-        printSubsetFromBinVector(subset, n);
-
-    }
-    printf("Amount subsets = %d", ++count);
-    free(subset);
-}
-
-void generateSubsetRecursive(int subset[], int n, int index) {
-    if (index == n) {
-        printSubsetFromBinVector(subset, n);
-        return;
-    }
-
-    for (int x = 0; x < 2; x++) {
-        subset[index] = x;
-        generateSubsetRecursive(subset, n, index + 1);
-    }
-}
-
-void generateSubsetsRecursive(int n) {
-    int *subset = (int *) malloc(n * sizeof(int));
-    printf("Subsets of set with power %d:\n", n);
-    generateSubsetRecursive(subset, n, 0);
-    free(subset);
-}
+////void generateSubsetsRecursive(int n) {
+//    int *subset = (int *) malloc(n * sizeof(int));
+//    printf("Subsets of set with power %d:\n", n);
+//    generateSubsetRecursive(subset, n, 0);
+//    free(subset);
+//}
 
 int countCombinations(int n, int k) {
     int numerator = 1;
@@ -246,4 +246,20 @@ void generate_placement(int M[], int n, int k, int i, int A[], int flag[]) {
             flag[j] = 0;
         }
     }
+}
+
+bool ordered_array_set_isEqual(int *set, size_t size_set, int *subset, size_t size_subset) {
+    // Если множества имеют разный размер, они не могут быть равны
+    if (size_set != size_subset) {
+        return false;
+    }
+
+    // Проверяем, что все элементы совпадают
+    for (size_t i = 0; i < size_set; i++) {
+        if (set[i] != subset[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }

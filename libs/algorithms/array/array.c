@@ -177,4 +177,13 @@ void swap(int *a, int *b) {
     *b = temp;
 }
 
+void outputSubset(int *M, int n, int *D) {
+    printf("{ ");
+    for (int i = 0; i < n; i++)
+        if (D[i] == 1)
+            printf("%d ", M[i]);
+    printf("}\n");
+}
+
+
 
