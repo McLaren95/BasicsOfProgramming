@@ -37,10 +37,78 @@ void convertMatrixRowsToColumns(const char *inputFilename, const char *outputFil
     fclose(output);
 }
 
-void convertToFloatingPoint(FILE* input, FILE* output) {
+void convertToFloatingPoint(FILE *input, FILE *output) {
     double number;
 
     while (fscanf(input, "%lf", &number) == 1) {
         fprintf(output, "%.2f\n", number);
     }
 }
+
+static int performOperation(int leftOperand, int rightOperand, char operator, int *error) {
+    switch (operator) {
+        case '+':
+            return leftOperand + rightOperand;
+        case '-':
+            return leftOperand - rightOperand;
+        case '*':
+            return leftOperand * rightOperand;
+        case '/':
+            if (rightOperand == 0) {
+                *error = 1;
+                return 0;
+            }
+            return leftOperand / rightOperand;
+        default:
+            *error = 1;
+            return 0;
+    }
+}
+
+void evaluateAndWriteExpression(const char *sentence, FILE *outputFile) {
+    int operands[3] = {0, 0, 0};
+    char operators[2] = {'\0', '\0'};
+    int operandIndex = 0, operatorIndex = 0;
+    int error = 0;
+
+    const char *ptr = sentence;
+
+    while (*ptr) {
+        if (isspace(*ptr)) {
+            ptr++;
+            continue;
+        }
+
+        if (isdigit(*ptr)) {
+            operands[operandIndex++] = *ptr - '0';
+        } else {
+            operators[operatorIndex++] = *ptr;
+        }
+        ptr++;
+    }
+
+    int result;
+
+    if (operandIndex == 2) {
+        result = performOperation(operands[0], operands[1], operators[0], &error);
+    } else {
+        if (operators[1] == '/' || operators[1] == '*') {
+            result = performOperation(
+                    operands[0], performOperation(operands[1], operands[2], operators[1], &error), operators[0], &error
+            );
+        } else {
+            result = performOperation(
+                    performOperation(operands[0], operands[1], operators[0], &error), operands[2], operators[1], &error
+            );
+        }
+    }
+
+    if (error) {
+        fprintf(outputFile, "%s = error\n", sentence);
+    } else {
+        fprintf(outputFile, "%s = %d\n", sentence, result);
+    }
+}
+
+
+
