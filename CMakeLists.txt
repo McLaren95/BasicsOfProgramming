@@ -26,6 +26,8 @@ add_executable(untitled main.c
         labs/tests/lab_18_tests.h
         labs/lab_19/lab_19.c
         labs/lab_19/lab_19.h
+        labs/lab_20/lab_20.c
+        labs/lab_20/lab_20.h
 )
 
 add_subdirectory(libs)
