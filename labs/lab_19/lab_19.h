@@ -5,6 +5,14 @@
 #include <string.h>
 #include <ctype.h>
 #include <math.h>
+#include <assert.h>
+
+typedef struct {
+    char name[50];
+    char surname[50];
+    char patronymic[50];
+    float bestResult;
+} Sportsman;
 
 // считывает матрицу из файла, затем конвертирует строки матрицы в столбцы и
 // записывает результат обратно в файл.
@@ -33,3 +41,7 @@ void printLongestWords(FILE *input, FILE *output);
 
 // Функция сортировки чисел по их знаку с сохранением порядка
 void sortNumbersByPositivity(const char *input_filename, const char *output_filename);
+
+//считывает информацию о спортсменах в память, сортирует их по убыванию их лучших результатов,
+// сохраняет в файл информацию только о заданном количестве лучших спортсменов.
+void collectTheBestTeam(const char *filename, int teamSize);

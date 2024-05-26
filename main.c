@@ -1,119 +1,81 @@
 #include "labs/lab_19/lab_19.h"
-#include <assert.h>
 
-void testNegative() {
-    const char input_filename[] = "test_input.txt";
-    const char output_filename[] = "test_output.txt";
-
-    int x1 = -1;
-    int x2 = -2;
-    int x3 = -3;
-
-    FILE *file = fopen(input_filename, "wb");
-
-    fwrite(&x1, sizeof(int), 1, file);
-    fwrite(&x2, sizeof(int), 1, file);
-    fwrite(&x3, sizeof(int), 1, file);
-
-    fclose(file);
-
-    sortNumbersByPositivity(input_filename, output_filename);
-
-    file = fopen(output_filename, "rb");
-
-    int res_x1, res_x2, res_x3;
-    fread(&res_x1, sizeof(int), 1, file);
-    fread(&res_x2, sizeof(int), 1, file);
-    fread(&res_x3, sizeof(int), 1, file);
-
-    fclose(file);
-
-    assert(x1 == res_x1);
-    assert(x2 == res_x2);
-    assert(x3 == res_x3);
-
-    printf("Test passed\n");
+int string_strcmp(const char* s1, const char* s2) {
+    return strcmp(s1, s2);
 }
 
-void testPositive() {
-    const char input_filename[] = "test_input.txt";
-    const char output_filename[] = "test_output.txt";
+void testOneBest() {
+    const char fname[] = "test.txt";
 
-    int x1 = 1;
-    int x2 = 2;
-    int x3 = 3;
+    FILE* file = fopen(fname, "wb");
 
-    FILE *file = fopen(input_filename, "wb");
+    Sportsman s1 = {.bestResult = 10.0f, .name = "Max", .surname = "Ivanov", .patronymic = "Ivanovich"};
+    Sportsman s2 = {.bestResult = 7.0f, .name = "Dan", .surname = "Lashin", .patronymic = "Petrovich"};
 
-    fwrite(&x1, sizeof(int), 1, file);
-    fwrite(&x2, sizeof(int), 1, file);
-    fwrite(&x3, sizeof(int), 1, file);
+    fwrite(&s1, sizeof(Sportsman), 1, file);
+    fwrite(&s2, sizeof(Sportsman), 1, file);
 
     fclose(file);
 
-    sortNumbersByPositivity(input_filename, output_filename);
+    collectTheBestTeam(fname, 1);
 
-    file = fopen(output_filename, "rb");
+    file = fopen(fname, "rb");
 
-    int res_x1, res_x2, res_x3;
-    fread(&res_x1, sizeof(int), 1, file);
-    fread(&res_x2, sizeof(int), 1, file);
-    fread(&res_x3, sizeof(int), 1, file);
+    Sportsman res_s1;
+    fread(&res_s1, sizeof(Sportsman), 1, file);
 
     fclose(file);
 
-    assert(x1 == res_x1);
-    assert(x2 == res_x2);
-    assert(x3 == res_x3);
-    printf("Test passed\n");
+    assert(string_strcmp(s1.name, res_s1.name) == 0);
+    assert(string_strcmp(s1.surname, res_s1.surname) == 0);
+    assert(string_strcmp(s1.patronymic, res_s1.patronymic) == 0);
+    assert(fabsf(s1.bestResult - res_s1.bestResult) <= 0.001f);
+
+    printf("Test 1 passed\n");
 }
 
+void testSomeBest() {
+    const char fname[] = "test.txt";
 
-void testBoth() {
-    const char input_filename[] = "test_input.txt";
-    const char output_filename[] = "test_output.txt";
+    FILE* file = fopen(fname, "wb");
 
-    int x1 = -1;
-    int x2 = 1;
-    int x3 = -3;
-    int x4 = 3;
+    Sportsman s1 = {.bestResult = 10.0f, .name = "Max", .surname = "Ivanov", .patronymic = "Ivanovich"};
+    Sportsman s2 = {.bestResult = 7.0f, .name = "Dan", .surname = "Lashin", .patronymic = "Petrovich"};
 
-    FILE *file = fopen(input_filename, "wb");
-
-    fwrite(&x1, sizeof(int), 1, file);
-    fwrite(&x2, sizeof(int), 1, file);
-    fwrite(&x3, sizeof(int), 1, file);
-    fwrite(&x4, sizeof(int), 1, file);
+    fwrite(&s1, sizeof(Sportsman), 1, file);
+    fwrite(&s2, sizeof(Sportsman), 1, file);
 
     fclose(file);
 
-    sortNumbersByPositivity(input_filename, output_filename);
+    collectTheBestTeam(fname, 2);
 
-    file = fopen(output_filename, "rb");
+    file = fopen(fname, "rb");
 
-    int res_x1, res_x2, res_x3, res_x4;
-    fread(&res_x1, sizeof(int), 1, file);
-    fread(&res_x2, sizeof(int), 1, file);
-    fread(&res_x3, sizeof(int), 1, file);
-    fread(&res_x4, sizeof(int), 1, file);
+    Sportsman res_s1, res_s2;
+    fread(&res_s1, sizeof(Sportsman), 1, file);
+    fread(&res_s2, sizeof(Sportsman), 1, file);
 
     fclose(file);
 
-    assert(res_x1 == x2);
-    assert(res_x2 == x4);
-    assert(res_x3 == x1);
-    assert(res_x4 == x3);
-    printf("Test passed\n");
+    assert(string_strcmp(s1.name, res_s1.name) == 0);
+    assert(string_strcmp(s1.surname, res_s1.surname) == 0);
+    assert(string_strcmp(s1.patronymic, res_s1.patronymic) == 0);
+    assert(fabsf(s1.bestResult - res_s1.bestResult) <= 0.001f);
+
+    assert(string_strcmp(s2.name, res_s2.name) == 0);
+    assert(string_strcmp(s2.surname, res_s2.surname) == 0);
+    assert(string_strcmp(s2.patronymic, res_s2.patronymic) == 0);
+    assert(fabsf(s2.bestResult - res_s2.bestResult) <= 0.001f);
+
+    printf("Test 2 passed\n");
 }
 
-
-void testSortNumbersByPositivity() {
-    testPositive();
-    testNegative();
-    testBoth();
+void testCollectTheBestTeam() {
+    testOneBest();
+    testSomeBest();
 }
 
 int main() {
-    testSortNumbersByPositivity();
+    testCollectTheBestTeam();
     return 0;
 }

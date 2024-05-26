@@ -196,6 +196,40 @@ void sortNumbersByPositivity(const char *input_filename, const char *output_file
     fclose(output);
 }
 
+static int compareSportsmen(const void *left, const void *right) {
+    float l = ((const Sportsman *) left)->bestResult;
+    float r = ((const Sportsman *) right)->bestResult;
+    return (r > l) - (r < l);
+}
+
+void collectTheBestTeam(const char *filename, int teamSize) {
+    FILE *file = fopen(filename, "rb+");
+    if (!file) {
+        perror("Error opening file");
+        exit(EXIT_FAILURE);
+    }
+
+    fseek(file, 0, SEEK_END);
+    long fileSize = ftell(file);
+    rewind(file);
+
+    int sportsmanAmount = (int) (fileSize / sizeof(Sportsman));
+    Sportsman *sportsmen = malloc(fileSize);
+    if (!sportsmen) {
+        perror("Error opening file");
+        fclose(file);
+        exit(EXIT_FAILURE);
+    }
+
+    fread(sportsmen, sizeof(Sportsman), sportsmanAmount, file);
+    qsort(sportsmen, sportsmanAmount, sizeof(Sportsman), compareSportsmen);
+
+    rewind(file);
+    fwrite(sportsmen, sizeof(Sportsman), teamSize, file);
+
+    free(sportsmen);
+    fclose(file);
+}
 
 
 
