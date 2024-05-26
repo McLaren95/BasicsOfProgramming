@@ -29,4 +29,7 @@ void filterWordsByPattern(FILE *input, FILE *output, const char *content);
 
 //считывает строки из входного файла и для каждой строки выводит в выходной файл самое длинное слово,
 // пропуская все остальные слова в строке.
-void printLongestWords(FILE* input, FILE* output);
+void printLongestWords(FILE *input, FILE *output);
+
+// Функция сортировки чисел по их знаку с сохранением порядка
+void sortNumbersByPositivity(const char *input_filename, const char *output_filename);

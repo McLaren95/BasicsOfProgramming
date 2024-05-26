@@ -133,12 +133,12 @@ void filterWordsByPattern(FILE *input, FILE *output, const char *content) {
     }
 }
 
-void printLongestWords(FILE* input, FILE* output) {
+void printLongestWords(FILE *input, FILE *output) {
     char line[100];
 
     while (fgets(line, 100, input) != NULL) {
-        char* word = strtok(line, " ");
-        char* longestWord = word;
+        char *word = strtok(line, " ");
+        char *longestWord = word;
         size_t biggestLength = strlen(longestWord);
 
         word = strtok(NULL, " ");
@@ -157,6 +157,45 @@ void printLongestWords(FILE* input, FILE* output) {
         fprintf(output, "%s\n", longestWord);
     }
 }
+
+void sortNumbersByPositivity(const char *input_filename, const char *output_filename) {
+    FILE *input = fopen(input_filename, "rb");
+    FILE *output = fopen(output_filename, "wb");
+    if (!input || !output) {
+        perror("Error opening file");
+        exit(EXIT_FAILURE);
+    }
+
+    fseek(input, 0, SEEK_END);
+    long fileSize = ftell(input);
+    rewind(input);
+
+    int numberAmount = fileSize / sizeof(int);
+    int *numbers = malloc(fileSize);
+
+
+    fread(numbers, sizeof(int), numberAmount, input);
+
+
+    for (int i = 0; i < numberAmount; ++i) {
+        if (numbers[i] > 0) {
+            fwrite(&numbers[i], sizeof(int), 1, output);
+        }
+    }
+
+
+    for (int i = 0; i < numberAmount; ++i) {
+        if (numbers[i] < 0) {
+            fwrite(&numbers[i], sizeof(int), 1, output);
+        }
+    }
+
+
+    free(numbers);
+    fclose(input);
+    fclose(output);
+}
+
 
 
 

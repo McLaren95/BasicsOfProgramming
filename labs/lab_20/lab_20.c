@@ -23,3 +23,39 @@ int **incrementSubmatrices(size_t n, int **query, int size_query) {
     }
     return matrix;
 }
+
+int countNeighbors(int **board, size_t rows, size_t columns, int i, int j) {
+    int count = 0;
+
+    for (int x = -1; x <= 1; x++) {
+        for (int y = -1; y <= 1; y++) {
+            count += board[(i + x + rows) % rows][(j + y + columns) % columns];
+        }
+    }
+
+    return count - board[i][j];
+}
+
+void printBoard(int **board, size_t rows, size_t columns) {
+    for (size_t i = 0; i < rows; i++) {
+        for (size_t j = 0; j < columns; j++) {
+            printf("%d ", board[i][j]);
+        }
+
+        printf("\n");
+    }
+}
+
+void nextGeneration(int **board, size_t rows, size_t columns) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) {
+            int neighbors = countNeighbors(board, rows, columns, i, j);
+
+            if (board[i][j] == 1) {
+                board[i][j] = ((neighbors < 2) || (neighbors > 3)) ? 0 : 1;
+            } else {
+                board[i][j] = (neighbors == 3) ? 1 : 0;
+            }
+        }
+    }
+}

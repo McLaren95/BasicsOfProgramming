@@ -1,31 +1,41 @@
-#include "labs/lab_20/lab_20.h"
+#include "labs/lab_19/lab_19.h"
 #include <assert.h>
 
-void testIncrementSubmatrices() {
-    int query1[4] = {0, 0, 1, 1};
-    int query2[4] = {1, 1, 2, 2};
-    int *queries[] = {query1, query2};
+void testSortNumbersByPositivity() {
+    const char input_filename[] = "test_input.txt";
+    const char output_filename[] = "test_output.txt";
 
-    int **matrix = incrementSubmatrices(3, (int **) queries, 2);
+    int x1 = -1;
+    int x2 = -2;
+    int x3 = -3;
 
-    assert(matrix[0][0] == 1);
-    assert(matrix[0][1] == 1);
-    assert(matrix[0][2] == 0);
-    assert(matrix[1][0] == 1);
-    assert(matrix[1][1] == 2);
-    assert(matrix[1][2] == 1);
-    assert(matrix[2][0] == 0);
-    assert(matrix[2][1] == 1);
-    assert(matrix[2][2] == 1);
-}
+    FILE *file = fopen(input_filename, "wb");
 
+    fwrite(&x1, sizeof(int), 1, file);
+    fwrite(&x2, sizeof(int), 1, file);
+    fwrite(&x3, sizeof(int), 1, file);
 
-void tests() {
-    testIncrementSubmatrices();
+    fclose(file);
+
+    sortNumbersByPositivity(input_filename, output_filename);
+
+    file = fopen(output_filename, "rb");
+
+    int res_x1, res_x2, res_x3;
+    fread(&res_x1, sizeof(int), 1, file);
+    fread(&res_x2, sizeof(int), 1, file);
+    fread(&res_x3, sizeof(int), 1, file);
+
+    fclose(file);
+
+    assert(x1 == res_x1);
+    assert(x2 == res_x2);
+    assert(x3 == res_x3);
+
+    printf("Test passed\n");
 }
 
 int main() {
-    tests();
+    testSortNumbersByPositivity();
+    return 0;
 }
-
-
